@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
 
     [Header("弾のステータス")]
+
     [SerializeField]
     [Tooltip("弾の速度")] private float _bulletSpeed;
     [SerializeField]
@@ -24,22 +25,25 @@ public class Player : MonoBehaviour
     [SerializeField]
     [Tooltip("バースト間隔")] private float _burstInterval;
     [SerializeField]
-    [Tooltip("バースト回数")] private int _maxBulletCount;
+    [Tooltip("バースト回数")] private float _burstNum;
+
+    private int _maxBulletCount = 0;
 
 
     [Header("--------------------------------")]
     [SerializeField]
     private GameObject _bulletPrefab;
     [SerializeField]
-    private GameObject _launchLocation;
-    
+    private List<GameObject> _launchLocation = new List<GameObject>();
+    private List<GameObject> _launchPoint = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        _launchPoint.Add(_launchLocation[0]);
         _rb = GetComponent<Rigidbody2D>();
         if(_burst) StartCoroutine(BulletBurst());
-        if (!_burst) InvokeRepeating(nameof(BulletShot), _interval, _interval);
+        if (!_burst) InvokeRepeating(nameof(BulletInstantiate), _interval, _interval);
     }
 
     // Update is called once per frame
@@ -48,21 +52,37 @@ public class Player : MonoBehaviour
         _rb.velocity = _move * _moveSpeed;
     }
 
-    private void BulletShot()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        var bullet = Instantiate(_bulletPrefab, _launchLocation.transform.position, Quaternion.identity);
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = Vector3.right * _bulletSpeed;
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            _launchPoint.Add(_launchLocation[_maxBulletCount]);
+        }
+    }
 
+    private void BulletShot(GameObject bulletObj)
+    {
+        Rigidbody2D bulletRb = bulletObj.GetComponent<Rigidbody2D>();
+        bulletRb.velocity = Vector3.right * _bulletSpeed;
+    }
+
+    private void BulletInstantiate()
+    {
+        foreach(GameObject bullet in _launchPoint)
+        {
+            var instantiateObj = Instantiate(_bulletPrefab, bullet.transform.position, Quaternion.identity);
+            BulletShot(instantiateObj);
+        }
+        
     }
 
     private IEnumerator BulletBurst()
     {
         while (true)
         {
-            for (int bulletCount = 0; bulletCount < _maxBulletCount; bulletCount++)
+            for (int bulletCount = 0; bulletCount < _burstNum; bulletCount++)
             {
-                BulletShot();
+                BulletInstantiate();
                 yield return new WaitForSeconds(_burstInterval);
             }
             yield return new WaitForSeconds(_interval);
@@ -72,5 +92,19 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         _move = value.Get<Vector2>();
+    }
+
+    void OnUp()
+    {
+        if (_maxBulletCount == 2) return;
+        _maxBulletCount++;
+        _launchPoint.Add(_launchLocation[_maxBulletCount]);
+    }
+
+    void OnDown()
+    {
+        if (_maxBulletCount == 0) return;
+        _launchPoint.RemoveAt(_maxBulletCount);
+        _maxBulletCount--;
     }
 }
