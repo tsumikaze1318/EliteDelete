@@ -13,16 +13,18 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField]
     private GameObject _enemyMuzzle;
     [SerializeField]
+    private float _bulletSpeed;
+    [SerializeField]
     private GameObject _player;
     private double _time;
     private bool _damageFlag;
     private int _hp;
     private float _attackTime;
     private float _nextAttack;
-    // Start is called before the first frame update
+
     void Start()
     {
-        _hp = 3;
+        _hp = 50;
         _damageFlag = false;
         _attackTime = 3.0f;
 
@@ -30,7 +32,6 @@ public class EnemyStatus : MonoBehaviour
         //StartCoroutine(DamageCoolTime());
     }
 
-    // Update is called once per frame
     void Update()
     {
         _attackTime -= Time.deltaTime;
@@ -49,10 +50,16 @@ public class EnemyStatus : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    private void BulletMove(GameObject bullet)
+    {
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        bulletRb.velocity = -Vector3.right * _bulletSpeed;
+    }
 
     private void Attack()
     {
-        Instantiate(_enemyBullet,_enemyMuzzle.transform.position,Quaternion.identity);
+        var _instantiateEnemyBullet = Instantiate(_enemyBullet,_enemyMuzzle.transform.position,Quaternion.identity);
+        BulletMove(_instantiateEnemyBullet);
         _nextAttack = Random.Range(3.0f, 5.0f);
         _attackTime = _nextAttack;
     }

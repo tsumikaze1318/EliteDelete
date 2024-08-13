@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _player;
-    [SerializeField]
-    private GameObject _enemy;
-    // Start is called before the first frame update
+    private bool _enabled = false;
+    private Renderer _renderer;
+
     void Start()
     {
-        
+        _renderer = GetComponent<Renderer>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        var _target = _player.transform.position - _enemy.transform.position;
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(_target * 10f);
+        if (!_enabled && _renderer.isVisible)
+        {
+            _enabled = true;
+        }
+        if (_enabled && !_renderer.isVisible)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _enabled = true;
+        }
     }
 }
