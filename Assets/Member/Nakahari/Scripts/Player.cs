@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,6 +55,10 @@ public class Player : MonoBehaviour
     private bool _damage = false;
     private float _timer = 0;
     private Animator _animator;
+    private bool _pauseAction;
+    [SerializeField]
+    private Canvas _pauseCanvas;
+    private bool _isPause;
 
     // Start is called before the first frame update
     void Start()
@@ -67,10 +73,15 @@ public class Player : MonoBehaviour
             obj.SetActive(false);
         }
         _faceIdle.SetActive(true);
+        _pauseCanvas.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    private void FixedUpdate()
     {
         _rb.velocity = _move * _moveSpeed;
         Damage();
@@ -147,10 +158,55 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(_interval);
         }
     }
+    
+    void PauseScreen()
+    {
+        if (!_isPause)
+        {
+            if (_pauseAction)
+            {
+                _pauseCanvas.enabled = true;
+                _isPause = true;
+                Time.timeScale = 0;
+            }
+        }
+        else
+        {
+            if (_pauseAction)
+            {
+                _pauseCanvas.enabled = false;
+                _isPause = false;
+                Time.timeScale = 1;
+            }
+        }
+    }
 
     void OnMove(InputValue value)
     {
         _move = value.Get<Vector2>();
+    }
+
+    void OnPause(InputValue value)
+    {
+        _pauseAction = value.isPressed;
+        if (!_isPause)
+        {
+            if (value.isPressed)
+            {
+                _pauseCanvas.enabled = true;
+                _isPause = true;
+                Time.timeScale = 0;
+            }
+        }
+        else
+        {
+            if (value.isPressed)
+            {
+                _pauseCanvas.enabled = false;
+                _isPause = false;
+                Time.timeScale = 1;
+            }
+        }
     }
 
     void OnUp()
