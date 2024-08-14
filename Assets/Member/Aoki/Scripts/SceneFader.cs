@@ -7,9 +7,9 @@ public class SceneFader : MonoBehaviour
 {
     public static SceneFader Instance;
 
-    public Canvas fadeCanvas; // フェード用Canvas
-    public Image fadeImage;
-    public float fadeDuration = 1f;
+    [SerializeField] private Canvas fadeCanvas; // フェード用Canvas
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private float fadeDuration = 1f;
 
     private void Awake()
     {

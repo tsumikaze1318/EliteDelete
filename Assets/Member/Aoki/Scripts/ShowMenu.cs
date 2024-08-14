@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class ShowMenuOnClick : MonoBehaviour
 {
-    [SerializeField] public GameObject blackBackground;
-    [SerializeField] public GameObject button1;
-    [SerializeField] public GameObject button2;
+    [SerializeField] private GameObject blackBackground;
+    [SerializeField] private GameObject button1;
 
     void Update()
     {
@@ -12,7 +11,6 @@ public class ShowMenuOnClick : MonoBehaviour
         {
             blackBackground.SetActive(true);
             button1.SetActive(true);
-            button2.SetActive(true);
         }
     }
 }
