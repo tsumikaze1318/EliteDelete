@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Cam : MonoBehaviour
 {
-    public Transform player; // プレイヤーのTransformを格納するための変数
-    public float smoothSpeed = 0.125f; // カメラの追従速度
-    public Vector3 offset; // プレイヤーとカメラの距離を保持するオフセット
+    [SerializeField] private Transform player; // プレイヤーのTransformを格納するための変数
+    [SerializeField] private float smoothSpeed = 0.125f; // カメラの追従速度
+    [SerializeField] private Vector3 offset; // プレイヤーとカメラの距離を保持するオフセット
 
     void LateUpdate()
     {

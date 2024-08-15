@@ -4,8 +4,9 @@ using UnityEngine;
 public class BackScroll : MonoBehaviour
 {
     private float length, startpos;
-    public GameObject cam;
-    public float parallaxEffect;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private float parallaxEffect;
+
     void Start()
     {
         startpos = transform.position.x;
