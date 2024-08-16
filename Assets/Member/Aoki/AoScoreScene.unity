@@ -703,9 +703,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdeaca6c99581349a390e13ee71c6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seClips:
-  - {fileID: 8300000, guid: 4ccf1f5c5a6a7a1449346c0c9bcbc4ae, type: 3}
-  - {fileID: 8300000, guid: c6bc866dc379d894baa0a4506c7a6554, type: 3}
+  bgmDataList: []
+  seDataList: []
+  bgmSource: {fileID: 0}
+  _randomClip: []
+  _randomData: []
+  seSource: {fileID: 0}
 --- !u!82 &1533637347
 AudioSource:
   m_ObjectHideFlags: 0

@@ -6,22 +6,13 @@ public class Button : MonoBehaviour
 {
     public void OnGameStartButtonClicked()
     {
-        SceneFader.Instance.FadeToScene("AoScene");
+        SceneFader.Instance.FadeToScene("Main");
+        SE.Instance.RandomPlaySe(RandomState.Start, RandomSEType.Start);
         Debug.Log("В╔Ве");
-    }
-
-    public void OnRuleButtonClicked()
-    {
-        SceneFader.Instance.FadeToScene("");
-    }
-
-    public void OnReStartButtonOnClicked()
-    {
-        SceneFader.Instance.FadeToScene("AoScene");
     }
 
     public void OnTitleBackClicled()
     {
-        SceneFader.Instance.FadeToScene("AoTScene");
+        SceneFader.Instance.FadeToScene("Title");
     }
 }
