@@ -60,10 +60,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Canvas _pauseCanvas;
     public bool _isPause;
-
-    float dis;
-    Vector2 playerPos;
-    Vector2 bossPos;
+    private bool lastHpSe = false;
 
     // Start is called before the first frame update
     void Start()
@@ -84,22 +81,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bossPos = this.transform.position;
-        dis = Vector2.Distance(playerPos, bossPos);
-    }
 
-    void Test()
-    {
-        playerPos = transform.position;
-        if (dis >= 0.5f)
-        {
-            _rb.velocity = playerPos - bossPos * _moveSpeed;
-        }
-        if(dis <= 0.5f)
-        {
-            _rb.velocity = Vector2.zero;
-            //@•€
-        }
     }
 
     private void FixedUpdate()
@@ -115,6 +97,7 @@ public class Player : MonoBehaviour
             _maxBulletCount++;
             _launchPoint.Add(_launchLocation[_maxBulletCount]);
             Destroy(other.gameObject);
+            SE.Instance.RandomPlaySe(RandomState.Item, RandomSEType.Item);
             if (_hp >= 5) return;
             _hp++;
         }
@@ -129,7 +112,19 @@ public class Player : MonoBehaviour
             }
             _faceIdle.SetActive(false);
             _animator.SetTrigger("Invincible");
-            if(_hp <=0) return;
+            if(_hp >= 2)
+            {
+                SE.Instance.RandomPlaySe(RandomState.Damage, RandomSEType.Damage);
+            }
+            else if(_hp == 1)
+            {
+                SE.Instance.RandomPlaySe(RandomState.Last, RandomSEType.Last);
+            }
+            else
+            {
+                SE.Instance.RandomPlaySe(RandomState.GameOver, RandomSEType.GameOver);
+            }
+            if (_hp <=0) return;
             _hp--;
         }
     }
@@ -215,6 +210,7 @@ public class Player : MonoBehaviour
         {
             if (value.isPressed)
             {
+                SE.Instance.PlaySe(SEType.SE1);
                 _pauseCanvas.enabled = true;
                 _isPause = true;
                 Time.timeScale = 0;
@@ -224,6 +220,7 @@ public class Player : MonoBehaviour
         {
             if (value.isPressed)
             {
+                SE.Instance.PlaySe(SEType.SE2);
                 _pauseCanvas.enabled = false;
                 _isPause = false;
                 Time.timeScale = 1;
