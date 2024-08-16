@@ -1373,10 +1373,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 10
-  _moveSpeed: 2
+  _moveSpeed: 6
   _invincibleTimer: 3
   _bulletSpeed: 5
-  _interval: 1
+  _interval: 0.2
   _burst: 0
   _burstInterval: 0.2
   _burstNum: 0
