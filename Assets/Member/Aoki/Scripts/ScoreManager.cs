@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // シーン間でオブジェクトを保持する
     }
 
-    public void AddScore(string enemyTag)
+    public void AddScore(string enemyTag, string colliderTag = null)
     {
         int scoreToAdd = 0;
 
@@ -29,10 +29,17 @@ public class ScoreManager : MonoBehaviour
                 scoreToAdd = 100;
                 break;
             case "Enemy2":
-                scoreToAdd = 200;
+                scoreToAdd = 300;
                 break;
             case "Boss":
-                scoreToAdd = 500;
+                if(colliderTag == "Bullet")
+                {
+                    scoreToAdd = 10;
+                }
+                else
+                {
+                    scoreToAdd = 3500;
+                }
                 break;
         }
 
