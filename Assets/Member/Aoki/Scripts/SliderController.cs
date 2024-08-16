@@ -39,6 +39,13 @@ public class SliderController : MonoBehaviour
 
     private float transitionSpeed = 1.0f;
 
+
+    // 中張追記 参照先
+    /*[SerializeField]
+    private Player _pl;
+    [SerializeField]
+    private BossStatus _boss;*/
+
     public enum Stage
     {
         Normal,
@@ -86,6 +93,27 @@ public class SliderController : MonoBehaviour
             //SetBossBackgroundAlpha(1.0f);
         }
     }
+    
+    // 中張追記 条件でリザルト分岐
+
+    /*private void result()
+    {
+        if (_pl.Hp <= 0)
+        {
+            if(slider.value < 100)
+            {
+                SceneFader.Instance.FadeToScene("");
+            }
+            else
+            {
+                SceneFader.Instance.FadeToScene("");
+            }
+        }
+        if(_boss._hp <= 0)
+        {
+            SceneFader.Instance.FadeToScene("");
+        }
+    }*/
 
     private void FadeOutNormalBack()
     {

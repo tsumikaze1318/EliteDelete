@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HpManager : MonoBehaviour
 {
+    [SerializeField]
     private Player _pl;
     [SerializeField]
     private Image[] _hpImages;
@@ -19,7 +20,6 @@ public class HpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _pl = GetComponentInParent<Player>();
         _hpImages = GetComponentsInChildren<Image>();
         _maxHp = _pl.Hp;
         _currentHp = _pl.Hp;

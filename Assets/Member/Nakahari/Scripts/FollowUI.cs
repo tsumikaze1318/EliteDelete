@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowUI : MonoBehaviour
 {
     private RectTransform _rectTransform;
+    [SerializeField]
     private Transform _target;
     [SerializeField]
     private Vector3 _offset;
@@ -12,7 +13,6 @@ public class FollowUI : MonoBehaviour
     void Start()
     {
         _rectTransform = GetComponent<RectTransform>();
-        _target = GetComponentInParent<Player>().transform;
     }
 
     // Update is called once per frame

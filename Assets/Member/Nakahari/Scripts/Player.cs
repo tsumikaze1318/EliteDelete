@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
     private Canvas _pauseCanvas;
     public bool _isPause;
 
+    float dis;
+    Vector2 playerPos;
+    Vector2 bossPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,8 +84,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bossPos = this.transform.position;
+        dis = Vector2.Distance(playerPos, bossPos);
     }
+
+    void Test()
+    {
+        playerPos = transform.position;
+        if (dis >= 0.5f)
+        {
+            _rb.velocity = playerPos - bossPos * _moveSpeed;
+        }
+        if(dis <= 0.5f)
+        {
+            _rb.velocity = Vector2.zero;
+            //@•€
+        }
+    }
+
     private void FixedUpdate()
     {
         _rb.velocity = _move * _moveSpeed;
