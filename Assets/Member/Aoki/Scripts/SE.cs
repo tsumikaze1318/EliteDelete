@@ -51,7 +51,9 @@ public enum RandomSEType
     Last,
     Boss,
     Claer,
-    GameOver
+    GameOver,
+    Sui,
+    SuiHP
 }
 
 public enum RandomState
@@ -63,7 +65,9 @@ public enum RandomState
     Last,
     Boss,
     Claer,
-    GameOver
+    GameOver,
+    Sui,
+    SuiHP
 }
 
 [System.Serializable]
@@ -96,7 +100,7 @@ public class SE : MonoBehaviour
     private List<RandomSEData> _randomData = new List<RandomSEData>();
     [SerializeField]
     private AudioSource seSource = null;
-
+    
 
 
     // Start is called before the first frame update
@@ -156,6 +160,10 @@ public class SE : MonoBehaviour
         seSource.Stop();
     }
 
+    public AudioSource PassAudioSource()
+    {
+        return seSource;
+    }
     public void RandomPlaySe(RandomState state, RandomSEType type)
     {
         switch (state)
@@ -167,6 +175,7 @@ public class SE : MonoBehaviour
                 seSource.clip = clip;
                 seSource.volume = se.Volume;
                 seSource.PlayOneShot(clip);
+                Debug.Log("いくぞ！！");
                 break;
             case RandomState.InGame:
                 var random1 = Random.Range(2, 5);
@@ -175,6 +184,7 @@ public class SE : MonoBehaviour
                 seSource.clip = clip1;
                 seSource.volume = se1.Volume;
                 seSource.PlayOneShot(clip1);
+                Debug.Log("ダイジョブダッテ");
                 break;
             case RandomState.Item:
                 var random2 = Random.Range(6, 7);
@@ -207,6 +217,7 @@ public class SE : MonoBehaviour
                 seSource.clip = clip5;
                 seSource.volume = se5.Volume;
                 seSource.PlayOneShot(clip5);
+                Debug.Log("PON");
                 break;
             case RandomState.Claer:
                 var random6 = Random.Range(17, 18);
@@ -223,6 +234,22 @@ public class SE : MonoBehaviour
                 seSource.clip = clip7;
                 seSource.volume = se7.Volume;
                 seSource.PlayOneShot(clip7);
+                break;
+            case RandomState.Sui:
+                var random8 = Random.Range(21, 22);
+                var clip8 = _randomClip[random8];
+                var se8 = _randomData[(int)type];
+                seSource.clip = clip8;
+                seSource.volume = se8.Volume;
+                seSource.PlayOneShot(clip8);
+                break;
+            case RandomState.SuiHP:
+                var random9 = Random.Range(23, 29);
+                var clip9 = _randomClip[random9];
+                var se9 = _randomData[(int)type];
+                seSource.clip = clip9;
+                seSource.volume = se9.Volume;
+                seSource.PlayOneShot(clip9);
                 break;
         }
     }
