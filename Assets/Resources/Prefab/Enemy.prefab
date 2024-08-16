@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3471515711689127139}
   - component: {fileID: 8612393415984471342}
+  - component: {fileID: -8693045362932404177}
+  - component: {fileID: 5416600314725419121}
+  - component: {fileID: 2781563986961778934}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -31,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8407287861693223006}
+  - {fileID: 4652881218902757328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &8612393415984471342
@@ -65,9 +69,75 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0025056005, y: 0.005011201}
-  m_Size: {x: 0.99610364, y: 1.9922073}
-  m_Direction: 0
+  m_Offset: {x: 0.1, y: -0.04}
+  m_Size: {x: 3.1099403, y: 1.800005}
+  m_Direction: 1
+--- !u!95 &-8693045362932404177
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050511437975595152}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 855732ce60bf74048a6760a942064d3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5416600314725419121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050511437975595152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f72f8416d351b4680d841a1e5091c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyRen: {fileID: 1932412587811782529}
+  _cycle: 0.2
+  _enemyBullet: {fileID: 5133160860141098440, guid: fafceb588dfad5c40848c800e4f50132, type: 3}
+  _enemyMuzzle: {fileID: 8266447941941212489}
+  _bulletSpeed: 5
+  _player: {fileID: 6267465229256154966, guid: 9581f658ab1338e4ab5b7e7ce3451fda, type: 3}
+--- !u!50 &2781563986961778934
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050511437975595152}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7325384959704861506
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8407287861693223006}
   - component: {fileID: 1932412587811782529}
+  - component: {fileID: 151328648941141138}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -141,8 +212,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d47c6374817ac1e4f9d6fb6c170f4889, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,3 +223,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &151328648941141138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7325384959704861506}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc37c632a4ab6e244bb5d06db9683325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Filename: 35P1.gif
+--- !u!1 &8266447941941212489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4652881218902757328}
+  m_Layer: 0
+  m_Name: EnemyMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4652881218902757328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266447941941212489}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.87, y: -1.07, z: -0.012952782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3471515711689127139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
