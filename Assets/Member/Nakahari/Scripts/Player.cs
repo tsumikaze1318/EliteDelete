@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     private bool _pauseAction;
     [SerializeField]
     private Canvas _pauseCanvas;
-    private bool _isPause;
+    public bool _isPause;
 
     // Start is called before the first frame update
     void Start()
