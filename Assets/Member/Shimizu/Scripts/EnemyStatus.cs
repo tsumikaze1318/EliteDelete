@@ -41,9 +41,7 @@ public class EnemyStatus : MonoBehaviour
         }
         if (_damageFlag == true)
         {
-            _time += Time.deltaTime;
-            var repeatValue = Mathf.Repeat((float)_time, _cycle);
-            _enemyRen.enabled = repeatValue >= _cycle * 0.5f;
+            TakeDamage();
         }
         if (_hp == 0)
         {
@@ -74,7 +72,14 @@ public class EnemyStatus : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void TakeDamage()
+    {
+        _time += Time.deltaTime;
+        var repeatValue = Mathf.Repeat((float)_time, _cycle);
+        _enemyRen.enabled = repeatValue >= _cycle * 0.5f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
@@ -92,5 +97,6 @@ public class EnemyStatus : MonoBehaviour
         yield return new WaitForSeconds(1);
         _damageFlag = false;
         _enemyRen.enabled = true;
+        _time = 0;
     }
 }
