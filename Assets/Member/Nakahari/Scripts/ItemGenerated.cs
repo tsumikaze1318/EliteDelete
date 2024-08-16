@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemGenerated : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ItemGenerated : MonoBehaviour
     private Transform _rangeUp;
     [SerializeField]
     private Transform _rangeDown;
+
+    [SerializeField]
+    private Slider _mikoSlider;
 
     private int _count = 0;
 
@@ -31,7 +35,7 @@ public class ItemGenerated : MonoBehaviour
 
     private void Generated()
     {
-        if(_player.transform.position.x >= _player.ItemPos[_count])
+        if(_mikoSlider.value >= _player.ItemPos[_count])
         {
             float posY = Random.Range(_rangeDown.transform.position.y, _rangeUp.transform.position.y);
             float posX = Random.Range(_rangeDown.transform.position.x, _rangeUp.transform.position.x);
