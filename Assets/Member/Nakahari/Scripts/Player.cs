@@ -92,25 +92,25 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            _hp++;
             _maxBulletCount++;
             _launchPoint.Add(_launchLocation[_maxBulletCount]);
             Destroy(other.gameObject);
-            if(_hp > 5) _hp = 5;
+            if (_hp >= 5) return;
+            _hp++;
         }
 
         if (other.gameObject.CompareTag("Bullet"))
         {
             if (_damage) return;
             _damage = true;
-            _hp--;
             foreach (GameObject obj in _damageImage)
             {
                 obj.SetActive(true);
             }
             _faceIdle.SetActive(false);
             _animator.SetTrigger("Invincible");
-            if (_hp < 0) _hp = 0;
+            if(_hp <=0) return;
+            _hp--;
         }
     }
 
@@ -213,8 +213,10 @@ public class Player : MonoBehaviour
 
     void OnUp()
     {
-        _hp++;
-        if (_hp > 5) _hp = 5;
+        if(_hp <= 4)
+        {
+            _hp++;
+        }
         if (_maxBulletCount == 2) return;
         _maxBulletCount++;
         _launchPoint.Add(_launchLocation[_maxBulletCount]);
@@ -222,7 +224,10 @@ public class Player : MonoBehaviour
 
     void OnDown()
     {
-        _hp--;
+        if (_hp > 0)
+        {
+            _hp--;
+        }
         if (_hp < 0) _hp = 0;
         if (_maxBulletCount == 0) return;
         _launchPoint.RemoveAt(_maxBulletCount);
