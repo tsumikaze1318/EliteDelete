@@ -50,11 +50,12 @@ public class SceneFader : MonoBehaviour
         float t = fadeDuration;
         while (t > 0f)
         {
-            t -= Time.deltaTime;
+            t -= Time.unscaledDeltaTime;
             float alpha = t / fadeDuration;
             SetAlpha(alpha);
             yield return null;
         }
+        Time.timeScale = 1;
         SetAlpha(0f);
         fadeCanvas.enabled = false; // フェード用Canvasを無効にする
     }
@@ -65,7 +66,7 @@ public class SceneFader : MonoBehaviour
         float t = 0f;
         while (t < fadeDuration)
         {
-            t += Time.deltaTime;
+            t += Time.unscaledDeltaTime;
             float alpha = t / fadeDuration;
             SetAlpha(alpha);
             yield return null;
