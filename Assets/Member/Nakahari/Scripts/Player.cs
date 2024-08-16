@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,12 +13,12 @@ public class Player : MonoBehaviour
 
     [Header("プレイヤーのステータス")]
     [SerializeField]
-    private  int _hp;
+    [Tooltip("プレイヤーのHP")] private  int _hp;
     public int Hp => _hp;
     [SerializeField]
-    private float _moveSpeed;
+    [Tooltip("プレイヤーの速度")] private float _moveSpeed;
     [SerializeField]
-    private float _invincibleTimer;
+    [Tooltip("無敵時間")] private float _invincibleTimer;
 
     [Header("弾のステータス")]
 
@@ -126,6 +127,7 @@ public class Player : MonoBehaviour
                     obj.SetActive(false);
                 }
                 _timer = 0;
+                _damage = false;
             }
         }
     }
