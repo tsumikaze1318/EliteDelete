@@ -21,6 +21,9 @@ public class EnemyStatus : MonoBehaviour
     private int _hp;
     private float _attackTime;
     private float _nextAttack;
+    private EnemySpawn _enemySpawn;
+
+    public static int _enemyDieCount;
 
     void Start()
     {
@@ -45,6 +48,7 @@ public class EnemyStatus : MonoBehaviour
         }
         if (_hp == 0)
         {
+            _enemySpawn._enemyList.Remove(gameObject);
             Destroy(this.gameObject);
         }
     }

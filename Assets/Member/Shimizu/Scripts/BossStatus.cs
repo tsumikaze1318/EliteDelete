@@ -8,85 +8,177 @@ public class BossStatus : MonoBehaviour
     private float moveTime;
     private float vecX;
     private float vecY;
+    private float dis;
+    private Vector2 playerPos;
+    private Vector2 bossPos;
+    private Vector2 originalPos;
+    private bool _damageFlag;
+    private bool _attackFlag;
+    private bool attack2;
     [SerializeField]
-    private int _hp;
+    private Vector2 offset;
+    [SerializeField]
+    private float _moveSpeed;
+    [SerializeField]
+    public int _hp;
     [SerializeField]
     private GameObject _muzzle;
     [SerializeField]
-    private GameObject _bullet;
+    private List<GameObject> _bullets;
     [SerializeField]
     private float _bulletSpeed;
     [SerializeField]
     private GameObject _player;
     [SerializeField]
     private GameObject _attack2Obj;
+    [SerializeField]
+    private GameObject _damageFace;
+    [SerializeField]
+    private GameObject _idolFace;
 
     private void Start()
     {
+        _damageFlag = false;
+        _attackFlag = false;
         moveTime = 0;
         attackTime = 0;
+        _damageFace.SetActive(false);
+        _idolFace.SetActive(true);
     }
 
     private void Update()
     {
-        moveTime -= Time.deltaTime;
-        if (moveTime <= 0.0f)
+        bossPos = this.transform.position;
+        dis = Vector2.Distance(playerPos, bossPos);
+
+        if (_damageFlag == false)
         {
-            vecX = Random.Range(0, 5);
-            vecY = Random.Range(-5, 5);
-            transform.position = new Vector3(vecX, vecY, 0);
-            moveTime = 2.0f;
-        }
-        attackTime += Time.deltaTime;
-        if (attackTime <= 3.0f)
-        {
-            var randomAttack = Random.Range(1, 10);
-            if (randomAttack <=7)
+            moveTime -= Time.deltaTime;
+            if (moveTime <= 0.0f && attack2 == false)
             {
-                Attack1();
+                vecX = Random.Range(2, 5);
+                vecY = Random.Range(-3, 3);
+                transform.localPosition = new Vector3(vecX, vecY, 0);
+                moveTime = 2.0f;
             }
-            else
+            if (_attackFlag == false)
             {
-                Attack2();
+                attackTime += Time.deltaTime;
+            }
+            if (attackTime >= 3.0f)
+            {
+                _attackFlag = true;
+                attackTime = 0.0f;
+                int randomAttack = Random.Range(1, 10);
+                Debug.Log(randomAttack);
+                if (randomAttack <= 7)
+                {
+                    Attack1();
+                }
+                else if (randomAttack > 7)
+                {
+                    attack2 = true;
+                    playerPos = _player.transform.localPosition;
+                    originalPos = transform.position;
+                    Debug.Log("ê¬ñÿ");
+                    StartCoroutine(Test());
+                }
             }
         }
+        //if (dis <= 0.5f && attack2 == true)
+        //{
+        //    Attack2();
+        //}
     }
 
     private void BulletMove(GameObject bullet)
     {
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = -Vector3.right * _bulletSpeed;
-        attackTime = 0.0f;
     }
 
     private void Attack1()
     {
-        var _instantiateBullet = Instantiate(_bullet, _muzzle.transform.position, Quaternion.identity);
-        BulletMove(_instantiateBullet);
+        Debug.Log("Attack1");
+        StartCoroutine(AttackInterval());
     }
 
     private void Attack2()
     {
-        Vector2 _playerPos = _player.transform.position;
-        Vector2 _bossPos = transform.position;
+        //Debug.Log("waaaa");
+        //playerPos = _player.transform.position;
+        //if (dis >= 0.5f)
+        //{
+        //    Debug.Log("ê¬ñÿ");
+        //    gameObject.GetComponent<Rigidbody2D>().velocity = (playerPos - bossPos) * _moveSpeed;
+        //    Debug.Log(playerPos - bossPos);
+        //}
+        //if (dis <= 0.5f)
+        //{
+        //    Debug.Log("óIêl");
+        //    gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //    Instantiate(_attack2Obj, _muzzle.transform.position, Quaternion.identity);
+        //    StartCoroutine(AttackMotion());
+        //    attack2 = false;
+        //}
+        Debug.Log("óIêl");
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Instantiate(_attack2Obj, _muzzle.transform.position, Quaternion.identity);
+        StartCoroutine(AttackMotion());
+    }
 
-        while (Mathf.Abs(_playerPos.x - _bossPos.x) == 0.5f)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
         {
-            _bossPos.x += (_playerPos.x - _bossPos.x) * 0.01f;
-            _bossPos.y += (_playerPos.y - _bossPos.y) * 0.01f;
-            transform.position = _bossPos;
+            _damageFlag = true;
+            _idolFace.SetActive(false);
+            _damageFace.SetActive(true);
+            _hp--;
+            StartCoroutine(DamageCoolTime());
         }
+    }
 
-        if (Mathf.Abs(_playerPos.x - _bossPos.x) == 0.5f)
+    private IEnumerator Test()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = (playerPos - bossPos + offset) * _moveSpeed;
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Attack2();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<Rigidbody2D>().velocity = (originalPos - bossPos) * _moveSpeed;
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.3f);
+        attack2 = false;
+    }
+
+    private IEnumerator AttackInterval()
+    {
+        for (int i = 0; i < 5; i++)
         {
-            StartCoroutine(AttackMotion());
+            int randomBullet = Random.Range(0, 24);
+            var _instantiateBullet = Instantiate(_bullets[randomBullet], _muzzle.transform.position, Quaternion.identity);
+            BulletMove(_instantiateBullet);
+            yield return new WaitForSeconds(0.2f);
+            if (i == 4)
+            {
+                _attackFlag = false;
+            }
         }
     }
 
     private IEnumerator AttackMotion()
     {
-        yield return new WaitForSeconds(0.5f);
-        Instantiate(_attack2Obj, _muzzle.transform.position, Quaternion.identity);
-        attackTime = 0;
+        yield return new WaitForSeconds(0.2f);
+        _attackFlag = false;
+    }
+
+    private IEnumerator DamageCoolTime()
+    {
+        yield return new WaitForSeconds(2);
+        _damageFlag = false;
+        _idolFace.SetActive(true);
+        _damageFace.SetActive(false);
     }
 }
