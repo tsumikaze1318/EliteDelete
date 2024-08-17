@@ -49,32 +49,32 @@ MonoBehaviour:
   bgmDataList:
   - Type: 0
     Clip: {fileID: 8300000, guid: 420e0cbed9223d541ba9de0720d176c3, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Loop: 1
   - Type: 1
     Clip: {fileID: 8300000, guid: c9d602ac90a0b834c992bb8b51dd7341, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Loop: 1
   - Type: 2
     Clip: {fileID: 8300000, guid: d5778287ec0d2b044b956ea29f4b0685, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Loop: 1
   - Type: 3
     Clip: {fileID: 8300000, guid: 603f16ba437301b4e87863b43316aa8e, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Loop: 1
   - Type: 4
     Clip: {fileID: 8300000, guid: da6c073e47edbd74c91abe7dbfb56d08, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Loop: 1
   seDataList:
   - Type: 0
     Clip: {fileID: 8300000, guid: 6b95b32bf43f22248bf21cf8d3e2aa63, type: 3}
-    Volume: 0.5
+    Volume: 0.8
     Loop: 0
   - Type: 1
     Clip: {fileID: 8300000, guid: 95671fbf0ba9b014eae17f5e52f848a6, type: 3}
-    Volume: 0.5
+    Volume: 0.8
     Loop: 0
   bgmSource: {fileID: 3221281552442853058}
   _randomClip:
@@ -110,23 +110,23 @@ MonoBehaviour:
   _randomData:
   - Type: 0
     Clip: {fileID: 0}
-    Volume: 0.7
+    Volume: 0.8
     Loop: 0
   - Type: 1
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.9
     Loop: 0
   - Type: 2
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.8
     Loop: 0
   - Type: 3
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.6
     Loop: 0
   - Type: 4
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.7
     Loop: 0
   - Type: 5
     Clip: {fileID: 0}
@@ -134,19 +134,19 @@ MonoBehaviour:
     Loop: 0
   - Type: 6
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.7
     Loop: 0
   - Type: 7
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.6
     Loop: 0
   - Type: 8
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.7
     Loop: 0
   - Type: 9
     Clip: {fileID: 0}
-    Volume: 0.5
+    Volume: 0.7
     Loop: 0
   seSource: {fileID: 2042374321310109577}
 --- !u!1 &4549221371350740578
