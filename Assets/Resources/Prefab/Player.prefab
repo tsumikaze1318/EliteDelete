@@ -586,7 +586,7 @@ MonoBehaviour:
   _moveSpeed: 6
   _invincibleTimer: 3
   _bulletSpeed: 5
-  _interval: 0.2
+  _interval: 0.35
   _burst: 0
   _burstInterval: 0.2
   _burstNum: 0

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyRen: {fileID: 6902052192163114832}
   _cycle: 0.2
-  _ct: 5
+  _ct: 3
   _warningTime: 1
   _warningObj: {fileID: 5618740930149865439, guid: 48c2745a675b2e740a98f3b368009191, type: 3}
   _beamObj: {fileID: 1613802149865535092, guid: 0030d5f60c8439149ac277bd348c8e21, type: 3}

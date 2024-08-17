@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class KinnawaEnemy : MonoBehaviour
@@ -29,6 +27,7 @@ public class KinnawaEnemy : MonoBehaviour
     private EnemySpawn _enemySpawn;
     private double _time;
     private Rigidbody2D _rb;
+    private bool _damageFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +42,10 @@ public class KinnawaEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (_damageFlag == true)
+        {
+            TakeDamage();
+        }
         if (_hp <= 0)
         {
             ScoreManager.Instance.AddScore(gameObject.tag);
@@ -61,6 +64,7 @@ public class KinnawaEnemy : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             _hp -= 10;
+            _damageFlag = true;
             StartCoroutine(DamageCoolTime());
         }
     }
@@ -74,6 +78,7 @@ public class KinnawaEnemy : MonoBehaviour
     private IEnumerator DamageCoolTime()
     {
         yield return new WaitForSeconds(1);
+        _damageFlag = false;
         _enemyRen.enabled = true;
         _time = 0;
     }

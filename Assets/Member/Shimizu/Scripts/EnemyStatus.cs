@@ -31,7 +31,7 @@ public class EnemyStatus : MonoBehaviour
     {
         _hp = 50;
         _damageFlag = false;
-        _attackTime = 2.0f;
+        _attackTime = 1.5f;
         _enemySpawn = GetComponentInParent<EnemySpawn>();
         _target = _enemySpawn.target[Random.Range(0,2)];
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((_target.transform.position.x - this.transform.position.x), 0) * _moveSpeed;
@@ -98,6 +98,7 @@ public class EnemyStatus : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             _hp -= 10;
+            _damageFlag = true;
             StartCoroutine(DamageCoolTime());
         }
     }
