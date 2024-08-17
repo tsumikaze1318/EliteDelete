@@ -36,7 +36,7 @@ public class KinnawaEnemy : MonoBehaviour
         _hp = 50;
         _enemySpawn = GetComponentInParent<EnemySpawn>();
         _rb = GetComponent<Rigidbody2D>();
-        _target = _enemySpawn.target;
+        _target = _enemySpawn.target[Random.Range(0,2)];
         _rb.velocity = new Vector2(_target.transform.position.x - this.transform.position.x, 0) * _moveSpeed;
         StartCoroutine(Beam());
     }
@@ -49,8 +49,9 @@ public class KinnawaEnemy : MonoBehaviour
             _enemySpawn._enemyList.Remove(gameObject);
             Destroy(this.gameObject);
         }
-        if(this.transform.localPosition.x <= _target.transform.position.x)
+        if(this.transform.localPosition.x <= _target.transform.localPosition.x)
         {
+            Debug.Log("yuuuuutooo");
             _rb.velocity = Vector2.zero;
         }
     }

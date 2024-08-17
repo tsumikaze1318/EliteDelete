@@ -31,9 +31,9 @@ public class EnemyStatus : MonoBehaviour
     {
         _hp = 50;
         _damageFlag = false;
-        _attackTime = 3.0f;
+        _attackTime = 2.0f;
         _enemySpawn = GetComponentInParent<EnemySpawn>();
-        _target = _enemySpawn.target;
+        _target = _enemySpawn.target[Random.Range(0,2)];
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((_target.transform.position.x - this.transform.position.x), 0) * _moveSpeed;
 
         //Debug—p
@@ -72,7 +72,7 @@ public class EnemyStatus : MonoBehaviour
     {
         var _instantiateEnemyBullet = Instantiate(_enemyBullet,_enemyMuzzle.transform.position,Quaternion.identity);
         BulletMove(_instantiateEnemyBullet);
-        _nextAttack = Random.Range(3.0f, 5.0f);
+        _nextAttack = Random.Range(1.0f, 5.0f);
         _attackTime = _nextAttack;
     }
 
