@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,11 +375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -670
+      value: -725
       objectReference: {fileID: 0}
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 350
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -392,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 6137702622089079325, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528149599110035125, guid: f8e6912b1cfa0b448945677512a32db1, type: 3}
+      propertyPath: m_Text
+      value: "\u79FB\u52D5 \uFF1A WASD\n\u30DD\u30FC\u30BA \uFF1A Escape"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -941,6 +945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage_NormalBack
       objectReference: {fileID: 0}
+    - target: {fileID: 7137345229161530766, guid: 41b8f0f6fff1fd94b8d24c5a6d4418dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 9066243947838888708, guid: 41b8f0f6fff1fd94b8d24c5a6d4418dd, type: 3}
       propertyPath: cam
       value: 
@@ -1478,6 +1486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5092198212533081863, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5459540504240887450, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
       propertyPath: _player
       value: 
@@ -1486,6 +1498,10 @@ PrefabInstance:
       propertyPath: _mikoSlider
       value: 
       objectReference: {fileID: 619231453}
+    - target: {fileID: 8031956171990456045, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8270714616667504968, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

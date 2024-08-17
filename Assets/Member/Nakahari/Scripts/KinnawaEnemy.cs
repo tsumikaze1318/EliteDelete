@@ -66,6 +66,7 @@ public class KinnawaEnemy : MonoBehaviour
             _hp -= 10;
             _damageFlag = true;
             StartCoroutine(DamageCoolTime());
+            Destroy(other.gameObject);
         }
     }
     private void TakeDamage()

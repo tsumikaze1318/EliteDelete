@@ -171,6 +171,7 @@ public class BossStatus : MonoBehaviour
             _damageFace.SetActive(true);
             _hp -= 10;
             StartCoroutine(DamageCoolTime());
+            Destroy(other.gameObject);
         }
     }
 

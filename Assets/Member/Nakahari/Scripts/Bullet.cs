@@ -17,11 +17,4 @@ public class Bullet : MonoBehaviour
         if (_enabled && !_renderer.isVisible)
             Destroy(gameObject);
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Bullet2") && !other.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-        }
-    }
 }

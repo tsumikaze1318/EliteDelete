@@ -35,6 +35,7 @@ public class EnemySpawn : MonoBehaviour
             var aoki = Instantiate(_enemies[0], new Vector2(posX, posY), Quaternion.identity);
             aoki.transform.parent = this.transform;
             _enemyList.Add(aoki);
+            aoki.gameObject.GetComponent<SpriteRenderer>().sortingOrder = _enemyList.IndexOf(aoki);
         }
         if (_enemyList.Count < 4 && slider.value >= 30 && slider.value < 80)
         {
@@ -47,12 +48,14 @@ public class EnemySpawn : MonoBehaviour
                 var yuto = Instantiate(_enemies[0], new Vector2(posX, posY), Quaternion.identity);
                 yuto.transform.parent = this.transform;
                 _enemyList.Add(yuto);
+                yuto.gameObject.GetComponent<SpriteRenderer>().sortingOrder = _enemyList.IndexOf(yuto);
             }
             if (randomEnemy > 8)
             {
                 var nakahari = Instantiate(_enemies[1], new Vector2(posX, posY), Quaternion.identity);
                 nakahari.transform.parent = this.transform;
                 _enemyList.Add(nakahari);
+                nakahari.gameObject.GetComponent<SpriteRenderer>().sortingOrder = _enemyList.IndexOf(nakahari);
             }
         }
     }

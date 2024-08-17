@@ -100,6 +100,7 @@ public class EnemyStatus : MonoBehaviour
             _hp -= 10;
             _damageFlag = true;
             StartCoroutine(DamageCoolTime());
+            Destroy(other.gameObject);
         }
     }
 
