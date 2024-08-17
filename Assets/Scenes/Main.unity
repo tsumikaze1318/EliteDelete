@@ -255,6 +255,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8627357507756852661, guid: ff3f403a0f770b44d9f27dd1ca8b0480, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.144287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627357507756852661, guid: ff3f403a0f770b44d9f27dd1ca8b0480, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9279785
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -502,6 +510,14 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1593189244}
+    - target: {fileID: 4029937218179915392, guid: c42fa7d07cc689c479907daf3031e0c2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1171258540}
+    - target: {fileID: 4029937218179915392, guid: c42fa7d07cc689c479907daf3031e0c2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4709624335016641435, guid: c42fa7d07cc689c479907daf3031e0c2, type: 3}
       propertyPath: _target
       value: 
@@ -1292,6 +1308,7 @@ GameObject:
   - component: {fileID: 1171258539}
   - component: {fileID: 1171258542}
   - component: {fileID: 1171258543}
+  - component: {fileID: 1171258544}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1417,6 +1434,20 @@ MonoBehaviour:
   - {fileID: 961599106}
   - {fileID: 1011537271}
   _enemyList: []
+--- !u!114 &1171258544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171258538}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e8e77b22c138e48a2fa555d7dad4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 1171258540}
+  aspectVec: {x: 1920, y: 1080}
 --- !u!1001 &1233696140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2132,11 +2163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
