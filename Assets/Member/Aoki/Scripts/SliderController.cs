@@ -10,6 +10,7 @@ public class SliderController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform goal;
     [SerializeField] private Stage stage;
+    [SerializeField] private GameObject SuichanName;
 
     [Header("スライダー")]
 
@@ -84,6 +85,7 @@ public class SliderController : MonoBehaviour
             kumoObject.SetActive(true);
             starObject.SetActive(false);
             SuiHP.gameObject.SetActive(false);
+            SuichanName.gameObject.SetActive(false);
             SetNormalBackgroundAlpha(1.0f);
             //SetBossBackgroundAlpha(0);
             //SE.Instance.RandomPlaySe(RandomState.InGame,RandomSEType.InGame);
@@ -96,6 +98,7 @@ public class SliderController : MonoBehaviour
             kumoObject.SetActive(false);
             starObject.SetActive(true);
             SuiHP.gameObject.SetActive(true);
+            SuichanName.gameObject.SetActive(true);
             FadeOutNormalBack();
             //SetBossBackgroundAlpha(1.0f);
             if (!BossSE)
