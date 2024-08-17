@@ -21,8 +21,8 @@ public class Ao_KariEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             ScoreManager.Instance.AddScore("Boss", "Bullet");//Bossスクリプトに追加
-            TakeDamage(5);
-            Debug.Log("au-");
+            //TakeDamage(5);
+            //Debug.Log("au-");
         }
     }
 
@@ -48,6 +48,6 @@ public class Ao_KariEnemy : MonoBehaviour
 
         // 敵を削除
         Destroy(gameObject);
-        SceneFader.Instance.FadeToScene("AoScoreScene");
+        //SceneFader.Instance.FadeToScene("AoScoreScene");
     }
 }

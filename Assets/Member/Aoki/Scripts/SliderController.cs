@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,13 +40,13 @@ public class SliderController : MonoBehaviour
     private float goalX;
 
     private float transitionSpeed = 1.0f;
-
+    private bool BossSE = false;
 
     // 中張追記 参照先
-    /*[SerializeField]
+    [SerializeField]
     private Player _pl;
     [SerializeField]
-    private BossStatus _boss;*/
+    private BossStatus _boss;
 
     public enum Stage
     {
@@ -58,6 +60,10 @@ public class SliderController : MonoBehaviour
         slider.maxValue = goalX - startX;
         SetNormalBackgroundAlpha(1.0f);
         //SetBossBackgroundAlpha(0);
+        if(stage == Stage.Normal)
+        {
+            SE.Instance.RandomPlaySe(RandomState.InGame, RandomSEType.InGame);
+        }
     }
 
     void Update()
@@ -80,6 +86,7 @@ public class SliderController : MonoBehaviour
             SuiHP.gameObject.SetActive(false);
             SetNormalBackgroundAlpha(1.0f);
             //SetBossBackgroundAlpha(0);
+            //SE.Instance.RandomPlaySe(RandomState.InGame,RandomSEType.InGame);
         }
         else if (stage == Stage.Boss)
         {
@@ -91,29 +98,45 @@ public class SliderController : MonoBehaviour
             SuiHP.gameObject.SetActive(true);
             FadeOutNormalBack();
             //SetBossBackgroundAlpha(1.0f);
+            if (!BossSE)
+            {
+                BossSE = true;
+                SE.Instance.StopBgm();
+                SE.Instance.PlayBgm(BGMType.BGM5);
+                StartCoroutine(SuiSE());
+
+            }
         }
     }
+
+    IEnumerator SuiSE()
+    {
+        SE.Instance.RandomPlaySe(RandomState.Sui, RandomSEType.Sui);
+        yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
+        SE.Instance.RandomPlaySe(RandomState.Boss, RandomSEType.Boss);
+    }
+
     
     // 中張追記 条件でリザルト分岐
 
-    /*private void result()
+    private void result()
     {
         if (_pl.Hp <= 0)
         {
             if(slider.value < 100)
             {
-                SceneFader.Instance.FadeToScene("");
+                SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4);
             }
             else
             {
-                SceneFader.Instance.FadeToScene("");
+                SceneFader.Instance.FadeToScene("Lose2",BGMType.BGM4);
             }
         }
         if(_boss._hp <= 0)
         {
-            SceneFader.Instance.FadeToScene("");
+            SceneFader.Instance.FadeToScene("Result",BGMType.BGM3);
         }
-    }*/
+    }
 
     private void FadeOutNormalBack()
     {
