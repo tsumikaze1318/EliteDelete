@@ -7,7 +7,7 @@ public class SliderController : MonoBehaviour
 {
     [Header("‚Ý‚±‚¿‚ÌêŠ‚ÆƒS[ƒ‹")]
 
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform cam;
     [SerializeField] private Transform goal;
     [SerializeField] private Stage stage;
     [SerializeField] private GameObject SuichanName;
@@ -60,7 +60,7 @@ public class SliderController : MonoBehaviour
     void Start()
     {
         SEse = true;
-        startX = player.position.x;
+        startX = cam.position.x;
         goalX = goal.position.x;
         slider.maxValue = goalX - startX;
         SetNormalBackgroundAlpha(1.0f);
@@ -77,7 +77,7 @@ public class SliderController : MonoBehaviour
         {
             result();
         }
-        float playerProgress = player.position.x - startX;
+        float playerProgress = cam.position.x - startX;
         slider.value = playerProgress;
 
         if (slider.value >= 100)

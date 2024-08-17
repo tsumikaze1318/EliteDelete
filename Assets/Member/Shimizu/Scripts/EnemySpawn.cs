@@ -16,7 +16,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private Transform _rangeDown;
     [SerializeField]
-    public Transform target;
+    public List<Transform> target;
 
     public List<GameObject> _enemyList = new List<GameObject>();
 

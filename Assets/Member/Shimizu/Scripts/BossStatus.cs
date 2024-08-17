@@ -90,7 +90,7 @@ public class BossStatus : MonoBehaviour
         {
             attackTime += Time.deltaTime;
         }
-        if (attackTime >= 3.0f)
+        if (attackTime >= 2.0f)
         {
             _attackFlag = true;
             attackTime = 0.0f;
@@ -183,7 +183,7 @@ public class BossStatus : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            int randomBullet = Random.Range(0, 24);
+            int randomBullet = Random.Range(0, 25);
             var _instantiateBullet = Instantiate(_bullets[randomBullet], _muzzle.transform.position, Quaternion.identity);
             BulletMove(_instantiateBullet);
             yield return new WaitForSeconds(0.2f);
