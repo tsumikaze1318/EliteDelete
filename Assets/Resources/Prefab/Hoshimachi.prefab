@@ -147,6 +147,10 @@ MonoBehaviour:
   _attack2Obj: {fileID: 197036545130707908, guid: cc19ad226c3d93040b379730b97a00cf, type: 3}
   _damageFace: {fileID: 6333140824435274617}
   _idolFace: {fileID: 6210242203993316265}
+  healthSlider: {fileID: 0}
+  aoki: {fileID: 0}
+  rangeA: {fileID: 0}
+  rangeB: {fileID: 0}
 --- !u!1 &4979523160989229262
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,13 +207,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6210242203993316265}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.02290547, w: 0.9997377}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2995731164298087613}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.625}
 --- !u!212 &5319861811019078881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -372,9 +376,9 @@ Transform:
   m_GameObject: {fileID: 8496597232739986921}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.81, y: -1.44, z: -0.014525788}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -1.5, z: -0.014525788}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2995731164298087613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
