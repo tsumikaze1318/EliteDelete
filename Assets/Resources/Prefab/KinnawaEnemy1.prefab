@@ -152,10 +152,7 @@ MonoBehaviour:
   _beamObj: {fileID: 1613802149865535092, guid: 0030d5f60c8439149ac277bd348c8e21, type: 3}
   _beamPos: {fileID: 1911411081163259136}
   _warningPos: {fileID: 435832457302298035}
-  _offset: {x: -5.5, y: 0, z: 0}
-  _target2: {x: 5, y: 0, z: 0}
-  _target: {fileID: 1735589301239348930}
-  _moveSpeed: 1
+  _offset: {x: -10.7, y: 0, z: 0}
 --- !u!95 &1937959269947374074
 Animator:
   serializedVersion: 5
