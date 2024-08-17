@@ -36,7 +36,7 @@ public class KinnawaEnemy : MonoBehaviour
         _hp = 50;
         _enemySpawn = GetComponentInParent<EnemySpawn>();
         _rb = GetComponent<Rigidbody2D>();
-        _target = _enemySpawn._target;
+        _target = _enemySpawn.target;
         _rb.velocity = new Vector2(_target.transform.position.x - this.transform.position.x, 0) * _moveSpeed;
         StartCoroutine(Beam());
     }
@@ -45,6 +45,7 @@ public class KinnawaEnemy : MonoBehaviour
     {
         if (_hp == 0)
         {
+            ScoreManager.Instance.AddScore(gameObject.tag);
             _enemySpawn._enemyList.Remove(gameObject);
             Destroy(this.gameObject);
         }

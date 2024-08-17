@@ -57,6 +57,7 @@ public class EnemyStatus : MonoBehaviour
         }
         if (_hp == 0)
         {
+            ScoreManager.Instance.AddScore(gameObject.tag);
             _enemySpawn._enemyList.Remove(gameObject);
             Destroy(this.gameObject);
         }

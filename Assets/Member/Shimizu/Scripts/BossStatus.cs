@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossStatus : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class BossStatus : MonoBehaviour
     [SerializeField]
     private GameObject _idolFace;
 
+    public Slider healthSlider;
+
     private void Start()
     {
         _damageFlag = false;
@@ -44,6 +47,12 @@ public class BossStatus : MonoBehaviour
         attackTime = 0;
         _damageFace.SetActive(false);
         _idolFace.SetActive(true);
+
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = _hp;
+            healthSlider.value = _hp;
+        }
     }
 
     private void Update()
@@ -131,6 +140,7 @@ public class BossStatus : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            ScoreManager.Instance.AddScore("Boss", "Bullet");
             _damageFlag = true;
             _idolFace.SetActive(false);
             _damageFace.SetActive(true);
