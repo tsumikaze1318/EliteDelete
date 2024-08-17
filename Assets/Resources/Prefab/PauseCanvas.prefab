@@ -226,7 +226,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1901790492214549937}
+        - m_Target: {fileID: 9015602792826977153}
           m_TargetAssemblyTypeName: ButtonPointer, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 1
@@ -242,7 +242,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1901790492214549937}
+        - m_Target: {fileID: 9015602792826977153}
           m_TargetAssemblyTypeName: ButtonPointer, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ef0734f70d0a342855e572b6a6b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vec3: {x: 1.2, y: 1.2, z: 0}
+  _vec3: {x: 1.2, y: 1.2, z: 1}
 --- !u!1 &4944169822832406791
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1901790492214549937}
+        - m_Target: {fileID: 1189369948853403230}
           m_TargetAssemblyTypeName: ButtonPointer, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 1
@@ -513,7 +513,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1901790492214549937}
+        - m_Target: {fileID: 1189369948853403230}
           m_TargetAssemblyTypeName: ButtonPointer, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ef0734f70d0a342855e572b6a6b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vec3: {x: 1.2, y: 1.2, z: 0}
+  _vec3: {x: 1.2, y: 1.2, z: 1}
 --- !u!1 &6046102672302384340
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfbc2271c34b8e468db9e8d44ffde7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pl: {fileID: 0}
 --- !u!1 &6231681246696054788
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,4 +925,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ef0734f70d0a342855e572b6a6b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vec3: {x: 1.2, y: 1.2, z: 0}
+  _vec3: {x: 1.2, y: 1.2, z: 1}
