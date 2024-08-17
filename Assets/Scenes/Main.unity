@@ -589,11 +589,23 @@ PrefabInstance:
       value: MikoSlider
       objectReference: {fileID: 0}
     - target: {fileID: 1010717821697552419, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010717821697552419, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3328715267258473719, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328715267258473719, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328715267258473719, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9148077231297977318, guid: 0e2cdaae56962094091dc49f80f6df9d, type: 3}
