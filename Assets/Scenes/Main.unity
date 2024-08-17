@@ -857,7 +857,7 @@ PrefabInstance:
     - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1295872008}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a28fd4092d8bd4dbb216e906789d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1593189244}
+  cam: {fileID: 1171258541}
   goal: {fileID: 291682227}
   stage: 0
   SuichanName: {fileID: 2047125499}
