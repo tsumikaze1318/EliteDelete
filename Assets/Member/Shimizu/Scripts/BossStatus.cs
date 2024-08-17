@@ -46,6 +46,9 @@ public class BossStatus : MonoBehaviour
     private Transform rangeB;
     private Vector2 vec2;
 
+    private float _currentHp;
+    private float _ratioHp;
+
     private void Start()
     {
         _damageFlag = false;
@@ -54,6 +57,9 @@ public class BossStatus : MonoBehaviour
         attackTime = 0;
         _damageFace.SetActive(false);
         _idolFace.SetActive(true);
+
+        _ratioHp = _hp * 0.2f;
+        _currentHp = _hp;
 
         if (healthSlider != null)
         {
@@ -69,9 +75,11 @@ public class BossStatus : MonoBehaviour
         {
             healthSlider.value = _hp;
         }
-        if (_hp <= 0)
+        if (_hp <= _currentHp - _ratioHp)
         {
-
+            Debug.Log("se");
+            _currentHp -= _ratioHp;
+            SE.Instance.RandomPlaySe(RandomState.SuiHP, RandomSEType.SuiHP);
         }
         bossPos = this.transform.position;
         dis = Vector2.Distance(playerPos, bossPos);
