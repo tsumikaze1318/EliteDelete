@@ -583,9 +583,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 5
-  _moveSpeed: 6
+  _moveSpeed: 8
   _invincibleTimer: 3
-  _bulletSpeed: 5
+  _bulletSpeed: 9
   _interval: 0.35
   _burst: 0
   _burstInterval: 0.2
