@@ -16,11 +16,13 @@ public class EnemyStatus : MonoBehaviour
     private float _bulletSpeed;
     [SerializeField]
     private GameObject _player;
+    private Transform _target;
     private double _time;
     private bool _damageFlag;
     private int _hp;
     private float _attackTime;
     private float _nextAttack;
+    private float _moveSpeed = 1;
     private EnemySpawn _enemySpawn;
 
     public static int _enemyDieCount;
@@ -30,6 +32,9 @@ public class EnemyStatus : MonoBehaviour
         _hp = 50;
         _damageFlag = false;
         _attackTime = 3.0f;
+        _enemySpawn = GetComponentInParent<EnemySpawn>();
+        _target = _enemySpawn.target;
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((_target.transform.position.x - this.transform.position.x), 0) * _moveSpeed;
 
         //Debug—p
         //StartCoroutine(DamageCoolTime());
@@ -37,6 +42,10 @@ public class EnemyStatus : MonoBehaviour
 
     void Update()
     {
+        if (gameObject.transform.localPosition.x <= _target.transform.localPosition.x)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
         _attackTime -= Time.deltaTime;
         if (_attackTime <= 0.0f)
         {
@@ -87,12 +96,8 @@ public class EnemyStatus : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            if (_damageFlag == false)
-            {
-                _hp--;
-                _damageFlag = true;
-                StartCoroutine(DamageCoolTime());
-            }
+            _hp -= 10;
+            StartCoroutine(DamageCoolTime());
         }
     }
 

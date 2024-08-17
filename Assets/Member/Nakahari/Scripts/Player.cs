@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Canvas _pauseCanvas;
     public bool _isPause;
-    private bool lastHpSe = false;
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +101,7 @@ public class Player : MonoBehaviour
             _hp++;
         }
 
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet2"))
         {
             if (_damage) return;
             _damage = true;
