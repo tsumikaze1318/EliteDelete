@@ -76,15 +76,15 @@ public class EnemyStatus : MonoBehaviour
         _attackTime = _nextAttack;
     }
 
-    private void OnBecameVisible()
-    {
-        this.gameObject.SetActive(true);
-    }
+    //private void OnBecameVisible()
+    //{
+    //    this.gameObject.SetActive(true);
+    //}
 
-    private void OnBecameInvisible()
-    {
-        this.gameObject.SetActive(false);
-    }
+    //private void OnBecameInvisible()
+    //{
+    //    this.gameObject.SetActive(false);
+    //}
 
     private void TakeDamage()
     {
