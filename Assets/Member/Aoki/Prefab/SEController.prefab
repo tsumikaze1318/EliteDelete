@@ -144,6 +144,10 @@ MonoBehaviour:
     Clip: {fileID: 0}
     Volume: 0.5
     Loop: 0
+  - Type: 9
+    Clip: {fileID: 0}
+    Volume: 0.5
+    Loop: 0
   seSource: {fileID: 2042374321310109577}
 --- !u!1 &4549221371350740578
 GameObject:

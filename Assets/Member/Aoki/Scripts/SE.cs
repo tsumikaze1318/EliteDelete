@@ -172,7 +172,7 @@ public class SE : MonoBehaviour
         switch (state)
         {
             case RandomState.Start:
-                var random = Random.Range(0, 1);
+                var random = Random.Range(0, 2);
                 var clip = _randomClip[random];
                 var se = _randomData[(int)type];
                 seSource.clip = clip;
@@ -181,7 +181,7 @@ public class SE : MonoBehaviour
                 Debug.Log("いくぞ！！");
                 break;
             case RandomState.InGame:
-                var random1 = Random.Range(2, 5);
+                var random1 = Random.Range(2, 6);
                 var clip1 = _randomClip[random1];
                 var se1 = _randomData[(int)type];
                 seSource.clip = clip1;
@@ -190,7 +190,7 @@ public class SE : MonoBehaviour
                 Debug.Log("ダイジョブダッテ");
                 break;
             case RandomState.Item:
-                var random2 = Random.Range(6, 7);
+                var random2 = Random.Range(6, 8);
                 var clip2 = _randomClip[random2];
                 var se2 = _randomData[(int)type];
                 seSource.clip = clip2;
@@ -198,7 +198,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip2);
                 break;
             case RandomState.Damage:
-                var random3 = Random.Range(8, 11);
+                var random3 = Random.Range(8, 12);
                 var clip3 = _randomClip[random3];
                 var se3 =_randomData[(int)type];
                 seSource.clip = clip3;
@@ -206,7 +206,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip3);
                 break;
             case RandomState.Last:
-                var random4 = Random.Range(12, 13);
+                var random4 = Random.Range(12, 14);
                 var clip4 = _randomClip[random4];
                 var se4 = _randomData[(int)type];
                 seSource.clip = clip4;
@@ -214,7 +214,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip4);
                 break;
             case RandomState.Boss:
-                var random5 = Random.Range(14, 16);
+                var random5 = Random.Range(14, 17);
                 var clip5 = _randomClip[random5];
                 var se5 = _randomData[(int)type];
                 seSource.clip = clip5;
@@ -223,7 +223,7 @@ public class SE : MonoBehaviour
                 Debug.Log("PON");
                 break;
             case RandomState.Claer:
-                var random6 = Random.Range(17, 18);
+                var random6 = Random.Range(17, 19);
                 var clip6 = _randomClip[random6];
                 var se6 = _randomData[(int)type];
                 seSource.clip = clip6;
@@ -231,7 +231,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip6);
                 break;
             case RandomState.GameOver:
-                var random7 = Random.Range(19, 20);
+                var random7 = Random.Range(19, 21);
                 var clip7 = _randomClip[random7];
                 var se7 = _randomData[(int)type];
                 seSource.clip = clip7;
@@ -239,7 +239,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip7);
                 break;
             case RandomState.Sui:
-                var random8 = Random.Range(21, 22);
+                var random8 = Random.Range(21, 23);
                 var clip8 = _randomClip[random8];
                 var se8 = _randomData[(int)type];
                 seSource.clip = clip8;
@@ -247,7 +247,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip8);
                 break;
             case RandomState.SuiHP:
-                var random9 = Random.Range(23, 29);
+                var random9 = Random.Range(23, 30);
                 var clip9 = _randomClip[random9];
                 var se9 = _randomData[(int)type];
                 seSource.clip = clip9;

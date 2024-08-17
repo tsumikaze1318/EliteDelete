@@ -103,6 +103,15 @@ public class Player : MonoBehaviour
         {
             if (_damage) return;
             _damage = true;
+            if(_maxBulletCount > 0)
+            {
+                _launchPoint.Remove(_launchLocation[_maxBulletCount]);
+                _maxBulletCount--;
+            }
+            if (_hp > 0)
+            {
+                _hp--;
+            }
             foreach (GameObject obj in _damageImage)
             {
                 obj.SetActive(true);
@@ -115,14 +124,11 @@ public class Player : MonoBehaviour
             }
             else if(_hp == 1)
             {
+                Debug.Log("Last");
                 SE.Instance.RandomPlaySe(RandomState.Last, RandomSEType.Last);
             }
-            else
-            {
-                SE.Instance.RandomPlaySe(RandomState.GameOver, RandomSEType.GameOver);
-            }
-            if (_hp <=0) return;
-            _hp--;
+            
+            
         }
     }
 
