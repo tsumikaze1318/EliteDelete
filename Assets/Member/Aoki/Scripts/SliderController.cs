@@ -42,6 +42,9 @@ public class SliderController : MonoBehaviour
 
     private float transitionSpeed = 1.0f;
     private bool BossSE = false;
+    private bool fade = false;
+
+    public bool SEse = false;
 
     // ’†’£’Ç‹L ŽQÆæ
     [SerializeField]
@@ -56,6 +59,7 @@ public class SliderController : MonoBehaviour
     }
     void Start()
     {
+        SEse = true;
         startX = player.position.x;
         goalX = goal.position.x;
         slider.maxValue = goalX - startX;
@@ -69,6 +73,10 @@ public class SliderController : MonoBehaviour
 
     void Update()
     {
+        if (!fade)
+        {
+            result();
+        }
         float playerProgress = player.position.x - startX;
         slider.value = playerProgress;
 
@@ -116,6 +124,7 @@ public class SliderController : MonoBehaviour
     {
         SE.Instance.RandomPlaySe(RandomState.Sui, RandomSEType.Sui);
         yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
+        SEse = false;
         SE.Instance.RandomPlaySe(RandomState.Boss, RandomSEType.Boss);
     }
 
@@ -126,6 +135,7 @@ public class SliderController : MonoBehaviour
     {
         if (_pl.Hp <= 0)
         {
+            fade = true;
             if(slider.value < 100)
             {
                 SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4);
@@ -137,6 +147,7 @@ public class SliderController : MonoBehaviour
         }
         if(_boss._hp <= 0)
         {
+            fade = true;
             SceneFader.Instance.FadeToScene("Result",BGMType.BGM3);
         }
     }

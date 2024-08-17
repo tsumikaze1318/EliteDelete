@@ -36,8 +36,15 @@ public class BossStatus : MonoBehaviour
     private GameObject _damageFace;
     [SerializeField]
     private GameObject _idolFace;
-
+    [SerializeField]
     public Slider healthSlider;
+    [SerializeField]
+    private SliderController aoki;
+    [SerializeField]
+    private Transform rangeA;
+    [SerializeField]
+    private Transform rangeB;
+    private Vector2 vec2;
 
     private void Start()
     {
@@ -57,41 +64,49 @@ public class BossStatus : MonoBehaviour
 
     private void Update()
     {
+        if (aoki.SEse) return;
+        if (healthSlider != null)
+        {
+            healthSlider.value = _hp;
+        }
+        if (_hp <= 0)
+        {
+
+        }
         bossPos = this.transform.position;
         dis = Vector2.Distance(playerPos, bossPos);
 
-        if (_damageFlag == false)
+        moveTime -= Time.deltaTime;
+        if (moveTime <= 0.0f && attack2 == false)
         {
-            moveTime -= Time.deltaTime;
-            if (moveTime <= 0.0f && attack2 == false)
+            vecX = Random.Range(rangeA.transform.position.x, rangeB.transform.position.x);
+            vecY = Random.Range(rangeA.transform.position.y, rangeB.transform.position.y);
+            var lastBossPos = bossPos;
+            vec2 = new Vector2(vecX, vecY);
+            transform.position = Vector2.Lerp(lastBossPos, vec2, _moveSpeed);
+            moveTime = 2.0f;
+        }
+        if (_attackFlag == false)
+        {
+            attackTime += Time.deltaTime;
+        }
+        if (attackTime >= 3.0f)
+        {
+            _attackFlag = true;
+            attackTime = 0.0f;
+            int randomAttack = Random.Range(1, 10);
+            Debug.Log(randomAttack);
+            if (randomAttack <= 7)
             {
-                vecX = Random.Range(2, 5);
-                vecY = Random.Range(-3, 3);
-                transform.localPosition = new Vector3(vecX, vecY, 0);
-                moveTime = 2.0f;
+                Attack1();
             }
-            if (_attackFlag == false)
+            else if (randomAttack > 7)
             {
-                attackTime += Time.deltaTime;
-            }
-            if (attackTime >= 3.0f)
-            {
-                _attackFlag = true;
-                attackTime = 0.0f;
-                int randomAttack = Random.Range(1, 10);
-                Debug.Log(randomAttack);
-                if (randomAttack <= 7)
-                {
-                    Attack1();
-                }
-                else if (randomAttack > 7)
-                {
-                    attack2 = true;
-                    playerPos = _player.transform.localPosition;
-                    originalPos = transform.position;
-                    Debug.Log("ê¬ñÿ");
-                    StartCoroutine(Test());
-                }
+                attack2 = true;
+                playerPos = _player.transform.localPosition;
+                originalPos = transform.position;
+                Debug.Log("ê¬ñÿ");
+                StartCoroutine(Test());
             }
         }
         //if (dis <= 0.5f && attack2 == true)
@@ -138,13 +153,14 @@ public class BossStatus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (aoki.SEse) return;
         if (other.gameObject.CompareTag("Bullet"))
         {
             ScoreManager.Instance.AddScore("Boss", "Bullet");
             _damageFlag = true;
             _idolFace.SetActive(false);
             _damageFace.SetActive(true);
-            _hp--;
+            _hp -= 10;
             StartCoroutine(DamageCoolTime());
         }
     }

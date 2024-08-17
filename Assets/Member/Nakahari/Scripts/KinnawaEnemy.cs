@@ -43,7 +43,7 @@ public class KinnawaEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (_hp == 0)
+        if (_hp <= 0)
         {
             ScoreManager.Instance.AddScore(gameObject.tag);
             _enemySpawn._enemyList.Remove(gameObject);
@@ -83,9 +83,11 @@ public class KinnawaEnemy : MonoBehaviour
         {
             yield return new WaitForSeconds(_ct - 1);
             var warning = Instantiate(_warningObj, _warningPos.position, Quaternion.identity);
+            warning.transform.parent = this.transform;
             yield return new WaitForSeconds(_warningTime);
             Destroy(warning);
-            Instantiate(_beamObj, _beamPos.position + _offset, Quaternion.identity);
+            var beam = Instantiate(_beamObj, _beamPos.position + _offset, Quaternion.identity);
+            beam.transform.parent = this.transform;
         }
     }
 }
