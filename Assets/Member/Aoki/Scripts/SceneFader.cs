@@ -10,6 +10,7 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private Canvas fadeCanvas; // フェード用Canvas
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
+    private bool _isFade = false;
 
     private void Awake()
     {
@@ -41,6 +42,8 @@ public class SceneFader : MonoBehaviour
 
     public void FadeToScene(string GameScene, BGMType type, RandomState State,RandomSEType TypeSE)
     {
+        if (_isFade) return;
+        _isFade = true;
         StartCoroutine(FadeOut(GameScene));
         SE.Instance.PlayBgm(type);
         SE.Instance.RandomPlaySe(State, TypeSE);
@@ -60,10 +63,12 @@ public class SceneFader : MonoBehaviour
         Time.timeScale = 1;
         SetAlpha(0f);
         fadeCanvas.enabled = false; // フェード用Canvasを無効にする
+        _isFade = false;
     }
 
     private IEnumerator FadeOut(string GameScene)
     {
+        
         fadeCanvas.enabled = true; // フェード用Canvasを有効にする
         float t = 0f;
         while (t < fadeDuration)
