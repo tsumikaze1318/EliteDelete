@@ -77,6 +77,7 @@ public class BossStatus : MonoBehaviour
         }
         if (_hp <= _currentHp - _ratioHp)
         {
+            if (_currentHp == 300) return;
             Debug.Log("se");
             _currentHp -= _ratioHp;
             SE.Instance.RandomPlaySe(RandomState.SuiHP, RandomSEType.SuiHP);

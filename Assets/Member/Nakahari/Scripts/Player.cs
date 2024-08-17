@@ -91,8 +91,11 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            _maxBulletCount++;
-            _launchPoint.Add(_launchLocation[_maxBulletCount]);
+            if(_maxBulletCount < 2)
+            {
+                _maxBulletCount++;
+                _launchPoint.Add(_launchLocation[_maxBulletCount]);
+            }
             Destroy(other.gameObject);
             SE.Instance.RandomPlaySe(RandomState.Item, RandomSEType.Item);
             if (_hp >= 5) return;
