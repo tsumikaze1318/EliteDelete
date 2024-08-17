@@ -10,7 +10,7 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private Canvas fadeCanvas; // フェード用Canvas
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
-    private bool _isFade = false;
+    public bool _isFade = false;
 
     private void Awake()
     {
@@ -51,6 +51,7 @@ public class SceneFader : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
+        Time.timeScale = 1;
         fadeCanvas.enabled = true; // フェード用Canvasを有効にする
         float t = fadeDuration;
         while (t > 0f)
@@ -60,7 +61,6 @@ public class SceneFader : MonoBehaviour
             SetAlpha(alpha);
             yield return null;
         }
-        Time.timeScale = 1;
         SetAlpha(0f);
         fadeCanvas.enabled = false; // フェード用Canvasを無効にする
         _isFade = false;
