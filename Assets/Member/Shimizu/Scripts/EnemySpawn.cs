@@ -29,6 +29,7 @@ public class EnemySpawn : MonoBehaviour
     {
         if (_enemyList.Count < 4 && slider.value >= 5 && slider.value < 30)
         {
+            Debug.Log("Spawn");
             float posY = Random.Range(_rangeDown.transform.position.y, _rangeUp.transform.position.y);
             float posX = Random.Range(_rangeDown.transform.position.x, _rangeUp.transform.position.x);
             var aoki = Instantiate(_enemies[0], new Vector2(posX, posY), Quaternion.identity);

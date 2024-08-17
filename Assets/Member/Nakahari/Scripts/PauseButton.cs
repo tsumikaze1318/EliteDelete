@@ -5,12 +5,12 @@ using UnityEngine;
 public class PauseButton : MonoBehaviour
 {
     private Canvas _pauseCanvas;
+    [SerializeField]
     private Player _pl;
 
     private void Start()
     {
         _pauseCanvas = GetComponent<Canvas>();
-        _pl = GetComponentInParent<Player>();
     }
 
     public void OnRestartButton()
