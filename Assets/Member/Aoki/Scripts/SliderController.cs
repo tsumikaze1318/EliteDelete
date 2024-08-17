@@ -138,17 +138,17 @@ public class SliderController : MonoBehaviour
             fade = true;
             if(slider.value < 100)
             {
-                SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4);
+                SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4,RandomState.GameOver,RandomSEType.GameOver);
             }
             else
             {
-                SceneFader.Instance.FadeToScene("Lose2",BGMType.BGM4);
+                SceneFader.Instance.FadeToScene("Lose2",BGMType.BGM4,RandomState.GameOver, RandomSEType.GameOver);
             }
         }
         if(_boss._hp <= 0)
         {
             fade = true;
-            SceneFader.Instance.FadeToScene("Result",BGMType.BGM3);
+            SceneFader.Instance.FadeToScene("Result",BGMType.BGM3,RandomState.Claer,RandomSEType.Claer);
         }
     }
 

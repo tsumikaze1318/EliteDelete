@@ -53,7 +53,8 @@ public enum RandomSEType
     Claer,
     GameOver,
     Sui,
-    SuiHP
+    SuiHP,
+    Null
 }
 
 public enum RandomState
@@ -67,7 +68,8 @@ public enum RandomState
     Claer,
     GameOver,
     Sui,
-    SuiHP
+    SuiHP,
+    Null
 }
 
 [System.Serializable]
@@ -166,6 +168,7 @@ public class SE : MonoBehaviour
     }
     public void RandomPlaySe(RandomState state, RandomSEType type)
     {
+        if (state == RandomState.Null && type == RandomSEType.Null) return;
         switch (state)
         {
             case RandomState.Start:

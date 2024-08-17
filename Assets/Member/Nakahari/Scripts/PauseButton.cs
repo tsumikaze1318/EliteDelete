@@ -16,13 +16,13 @@ public class PauseButton : MonoBehaviour
     public void OnRestartButton()
     {
         SE.Instance.PlaySe(SEType.SE2);
-        SceneFader.Instance.FadeToScene("Main",BGMType.BGM2);
+        SceneFader.Instance.FadeToScene("Main",BGMType.BGM2,RandomState.Null,RandomSEType.Null);
     }
 
     public void OnTitleButton()
     {
         SE.Instance.PlaySe(SEType.SE2);
-        SceneFader.Instance.FadeToScene("Title", BGMType.BGM1);
+        SceneFader.Instance.FadeToScene("Title", BGMType.BGM1, RandomState.Null, RandomSEType.Null);
     }
 
     public void OnBackButton()

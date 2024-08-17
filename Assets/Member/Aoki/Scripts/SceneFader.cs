@@ -39,10 +39,11 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    public void FadeToScene(string GameScene, BGMType type)
+    public void FadeToScene(string GameScene, BGMType type, RandomState State,RandomSEType TypeSE)
     {
         StartCoroutine(FadeOut(GameScene));
         SE.Instance.PlayBgm(type);
+        SE.Instance.RandomPlaySe(State, TypeSE);
     }
 
     private IEnumerator FadeIn()
