@@ -247,7 +247,7 @@ public class SE : MonoBehaviour
                 seSource.PlayOneShot(clip8);
                 break;
             case RandomState.SuiHP:
-                var random9 = Random.Range(23, 30);
+                var random9 = Random.Range(23, 29);
                 var clip9 = _randomClip[random9];
                 var se9 = _randomData[(int)type];
                 seSource.clip = clip9;
