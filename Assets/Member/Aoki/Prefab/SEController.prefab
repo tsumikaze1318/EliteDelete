@@ -76,6 +76,14 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 95671fbf0ba9b014eae17f5e52f848a6, type: 3}
     Volume: 0.5
     Loop: 0
+  - Type: 2
+    Clip: {fileID: 8300000, guid: ea1a58a7599b65944997c08b42b887c8, type: 3}
+    Volume: 0.5
+    Loop: 0
+  - Type: 3
+    Clip: {fileID: 8300000, guid: fa10272239b628145a697fcb4a10a522, type: 3}
+    Volume: 0.5
+    Loop: 0
   bgmSource: {fileID: 3221281552442853058}
   _randomClip:
   - {fileID: 8300000, guid: 564d8d1f2f715ae4db0adc4c935859ce, type: 3}
@@ -97,9 +105,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a05dff68a6d557241a563d703be025ce, type: 3}
   - {fileID: 8300000, guid: c6bc866dc379d894baa0a4506c7a6554, type: 3}
   - {fileID: 8300000, guid: 6a9bb584ebd394049a6986c303d755da, type: 3}
+  - {fileID: 8300000, guid: cf506d113b94deb44aa03a2f34bf0c3c, type: 3}
   - {fileID: 8300000, guid: 6b66b7d9d1091ad4b8eef5186b3468c5, type: 3}
-  - {fileID: 8300000, guid: 55166f25a326b234483844a755986c8b, type: 3}
-  - {fileID: 8300000, guid: 55afc9ce783289349a5e5eccd079f1e5, type: 3}
   - {fileID: 8300000, guid: efbc6938dba970d42a2ed0645e16257d, type: 3}
   - {fileID: 8300000, guid: f0834a2f7f2fec64cab218edf2b52c31, type: 3}
   - {fileID: 8300000, guid: 45d2844ce3998724a93dfbf83c823627, type: 3}
@@ -137,10 +144,6 @@ MonoBehaviour:
     Volume: 0.5
     Loop: 0
   - Type: 7
-    Clip: {fileID: 0}
-    Volume: 0.5
-    Loop: 0
-  - Type: 8
     Clip: {fileID: 0}
     Volume: 0.5
     Loop: 0

@@ -234,27 +234,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    void OnUp()
-    {
-        if(_hp <= 4)
-        {
-            _hp++;
-        }
-        if (_maxBulletCount == 2) return;
-        _maxBulletCount++;
-        _launchPoint.Add(_launchLocation[_maxBulletCount]);
-    }
-
-    void OnDown()
-    {
-        if (_hp > 0)
-        {
-            _hp--;
-        }
-        if (_hp < 0) _hp = 0;
-        if (_maxBulletCount == 0) return;
-        _launchPoint.RemoveAt(_maxBulletCount);
-        _maxBulletCount--;
-    }
 }
