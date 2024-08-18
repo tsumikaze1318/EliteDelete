@@ -21,6 +21,8 @@ public class BossStatus : MonoBehaviour
     [SerializeField]
     private float _moveSpeed;
     [SerializeField]
+    private float _attackSpeed;
+    [SerializeField]
     public int _hp;
     [SerializeField]
     private GameObject _muzzle;
@@ -93,7 +95,7 @@ public class BossStatus : MonoBehaviour
         }
         if (_hp <= _currentHp - _ratioHp)
         {
-            if (_currentHp == 300) return;
+            if (_currentHp == _ratioHp) return;
             Debug.Log("se");
             _currentHp -= _ratioHp;
             SE.Instance.RandomPlaySe(RandomState.SuiHP, RandomSEType.SuiHP);
@@ -108,8 +110,12 @@ public class BossStatus : MonoBehaviour
             vecY = Random.Range(rangeA.transform.position.y, rangeB.transform.position.y);
             var lastBossPos = bossPos;
             vec2 = new Vector2(vecX, vecY);
-            transform.position = Vector2.Lerp(lastBossPos, vec2, _moveSpeed);
+            gameObject.GetComponent<Rigidbody2D>().velocity = (vec2 - lastBossPos).normalized * _moveSpeed;
             moveTime = 2.0f;
+        }
+        if(Mathf.Approximately(vec2.x,bossPos.x) && Mathf.Approximately(vec2.y, bossPos.y))
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         if (_attackFlag == false)
         {
@@ -193,12 +199,12 @@ public class BossStatus : MonoBehaviour
 
     private IEnumerator Test()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = (playerPos - bossPos + offset) * _moveSpeed;
+        gameObject.GetComponent<Rigidbody2D>().velocity = (playerPos - bossPos + offset) * _attackSpeed;
         yield return new WaitForSeconds(1);
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         Attack2();
         yield return new WaitForSeconds(0.5f);
-        gameObject.GetComponent<Rigidbody2D>().velocity = (originalPos - bossPos) * _moveSpeed;
+        gameObject.GetComponent<Rigidbody2D>().velocity = (originalPos - bossPos) * _attackSpeed;
         yield return new WaitForSeconds(1);
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.3f);

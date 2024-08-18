@@ -12,7 +12,7 @@ public class BossOhNo : MonoBehaviour
 
     private IEnumerator OhNoDestroy()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }
