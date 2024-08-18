@@ -921,6 +921,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SEController
       objectReference: {fileID: 0}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: seDataList.Array.data[3].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 10600d111f487494cbfaa07758aaec61, type: 3}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: seDataList.Array.data[3].Volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

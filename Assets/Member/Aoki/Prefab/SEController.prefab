@@ -96,6 +96,10 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 5143dbb8148552c4aab263b95487ccde, type: 3}
     Volume: 0.5
     Loop: 0
+  - Type: 7
+    Clip: {fileID: 8300000, guid: efbc6938dba970d42a2ed0645e16257d, type: 3}
+    Volume: 0.5
+    Loop: 0
   bgmSource: {fileID: 3221281552442853058}
   _randomClip:
   - {fileID: 8300000, guid: 564d8d1f2f715ae4db0adc4c935859ce, type: 3}

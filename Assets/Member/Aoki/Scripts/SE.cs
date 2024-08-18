@@ -29,7 +29,8 @@ public enum SEType
     SE4,
     SE5,
     SE6,
-    SE7
+    SE7,
+    SE8
 }
 
 //シリアライズ化

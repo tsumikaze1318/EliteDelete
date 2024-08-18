@@ -136,7 +136,7 @@ public class SliderController : MonoBehaviour
         yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
         SetAlpha(1f);
         SEse = false;
-        SE.Instance.RandomPlaySe(RandomState.Boss, RandomSEType.Boss);
+        SE.Instance.PlaySe(SEType.SE8);
     }
 
     private void SetAlpha(float alpha)
