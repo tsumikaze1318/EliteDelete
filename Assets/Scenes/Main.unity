@@ -913,42 +913,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SEController
       objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: seDataList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: _randomData.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: seDataList.Array.data[5].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a39a58aae6b7b81498eca8cc6e6e0572, type: 3}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: seDataList.Array.data[5].Type
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: _randomData.Array.data[9].Type
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: seDataList.Array.data[4].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: seDataList.Array.data[5].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: _randomData.Array.data[5].Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
-      propertyPath: _randomData.Array.data[9].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

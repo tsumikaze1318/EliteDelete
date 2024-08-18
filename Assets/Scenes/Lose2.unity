@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 6633764031844779424, guid: f44cb0e2569d7484b9882d2aea591bcb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTitleBackClicled
+      objectReference: {fileID: 0}
     - target: {fileID: 6766495688111097016, guid: f44cb0e2569d7484b9882d2aea591bcb, type: 3}
       propertyPath: m_Name
       value: LoseCanvas
