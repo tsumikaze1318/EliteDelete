@@ -852,6 +852,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8019878618768392658, guid: 3f6061632ce8dea47a2b1d82e0976470, type: 3}
+      propertyPath: m_Value
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019878618768392658, guid: 3f6061632ce8dea47a2b1d82e0976470, type: 3}
+      propertyPath: m_MaxValue
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 8689777803798765368, guid: 3f6061632ce8dea47a2b1d82e0976470, type: 3}
       propertyPath: m_Name
       value: Slider 1
@@ -1157,6 +1165,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
+      propertyPath: _hp
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
       propertyPath: aoki
       value: 
       objectReference: {fileID: 1299485385}
@@ -1172,6 +1184,14 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 887229750}
+    - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
+      propertyPath: _moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
+      propertyPath: _attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3885309507815784580, guid: 48d0326c1760dbf44afafc4e2fa3d773, type: 3}
       propertyPath: healthSlider
       value: 
@@ -1764,6 +1784,7 @@ MonoBehaviour:
   _canvas: {fileID: 517562940}
   _slider: {fileID: 619231453}
   _videoObj: {fileID: 65183876}
+  _sprite: {fileID: 65183878}
 --- !u!1001 &1233696140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1894,9 +1915,17 @@ PrefabInstance:
       value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5459540504240887450, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
+      propertyPath: _boss
+      value: 
+      objectReference: {fileID: 1761290017}
+    - target: {fileID: 5459540504240887450, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1593189243}
+    - target: {fileID: 5459540504240887450, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
+      propertyPath: _suiSlider
+      value: 
+      objectReference: {fileID: 1295872008}
     - target: {fileID: 5459540504240887450, guid: f45619e83d3083847a30a3c5e618198a, type: 3}
       propertyPath: _mikoSlider
       value: 
@@ -2102,7 +2131,7 @@ Transform:
   m_GameObject: {fileID: 1416488269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102, y: 2.5, z: -0.047117654}
+  m_LocalPosition: {x: 102, y: 1.61, z: -0.047117654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2260,7 +2289,7 @@ Transform:
   m_GameObject: {fileID: 1501576015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106, y: -3, z: -0.047117654}
+  m_LocalPosition: {x: 106, y: -1.43, z: -0.047117654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -16,6 +16,8 @@ public class VideoController : MonoBehaviour
     private GameObject _videoObj;
     private Image _image;
     private bool _inOut;
+    [SerializeField]
+    private SpriteRenderer _sprite;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class VideoController : MonoBehaviour
         _videoObj.SetActive(false);
         _canvas.enabled = false;
         Debug.Log("aaa");
+        _sprite.sortingOrder = -50;
     }
 
     private void Start()
@@ -52,10 +55,17 @@ public class VideoController : MonoBehaviour
                 _isPlaying = true;
                 _videoObj.SetActive(true);
                 _video.Play();
+                StartCoroutine(ChengeLayer());
                 
             }
         }
         
+    }
+
+    IEnumerator ChengeLayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _sprite.sortingOrder = 100;
     }
 
     IEnumerator In()

@@ -11,6 +11,12 @@ public class Button : MonoBehaviour
         Debug.Log("В╔Ве");
     }
 
+    public void OnResultTitleBackButton()
+    {
+        SE.Instance.PlaySe(SEType.SE7);
+        SceneFader.Instance.FadeToScene("Title", BGMType.BGM1, RandomState.Null, RandomSEType.Null);
+    }
+
     public void OnTitleBackClicled()
     {
         SE.Instance.PlaySe(SEType.SE6);
