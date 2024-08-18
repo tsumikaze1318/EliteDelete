@@ -95,7 +95,7 @@ MonoBehaviour:
   bgmSource: {fileID: 3221281552442853058}
   _randomClip:
   - {fileID: 8300000, guid: 564d8d1f2f715ae4db0adc4c935859ce, type: 3}
-  - {fileID: 8300000, guid: 6b95b32bf43f22248bf21cf8d3e2aa63, type: 3}
+  - {fileID: 8300000, guid: cb058195d4b6cec4680512da4ada0a5f, type: 3}
   - {fileID: 8300000, guid: c32b2c3ab2f4383419bc5d79e57cfdb1, type: 3}
   - {fileID: 8300000, guid: afd0ef6cd6a977e42aa160ef83980681, type: 3}
   - {fileID: 8300000, guid: 0ebd8fd247924334981b2f0694136a50, type: 3}
