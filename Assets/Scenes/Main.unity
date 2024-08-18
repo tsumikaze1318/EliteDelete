@@ -922,9 +922,13 @@ PrefabInstance:
       value: SEController
       objectReference: {fileID: 0}
     - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: seDataList.Array.data[2].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6556d6d5cdf12b7409efd8e40a424fcb, type: 3}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
       propertyPath: seDataList.Array.data[3].Clip
       value: 
-      objectReference: {fileID: 8300000, guid: 10600d111f487494cbfaa07758aaec61, type: 3}
+      objectReference: {fileID: 8300000, guid: 0bba64fb3fccbad4a95f5cf5cfbfb1ff, type: 3}
     - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
       propertyPath: seDataList.Array.data[3].Volume
       value: 1

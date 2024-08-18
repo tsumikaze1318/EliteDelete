@@ -77,12 +77,12 @@ MonoBehaviour:
     Volume: 0.8
     Loop: 0
   - Type: 2
-    Clip: {fileID: 8300000, guid: ea1a58a7599b65944997c08b42b887c8, type: 3}
-    Volume: 0.7
+    Clip: {fileID: 8300000, guid: 0bbee128b63aff6408530f9a92cfce29, type: 3}
+    Volume: 1
     Loop: 0
   - Type: 3
-    Clip: {fileID: 8300000, guid: a05dff68a6d557241a563d703be025ce, type: 3}
-    Volume: 0.7
+    Clip: {fileID: 8300000, guid: 0bba64fb3fccbad4a95f5cf5cfbfb1ff, type: 3}
+    Volume: 1
     Loop: 0
   - Type: 4
     Clip: {fileID: 8300000, guid: e26684be9f111834983dd9ad4405bfac, type: 3}
@@ -98,7 +98,7 @@ MonoBehaviour:
     Loop: 0
   - Type: 7
     Clip: {fileID: 8300000, guid: efbc6938dba970d42a2ed0645e16257d, type: 3}
-    Volume: 0.5
+    Volume: 0.8
     Loop: 0
   bgmSource: {fileID: 3221281552442853058}
   _randomClip:
