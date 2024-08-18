@@ -52,6 +52,8 @@ public class SliderController : MonoBehaviour
     [SerializeField]
     private BossStatus _boss;
 
+    private bool _addScore = false;
+
     public enum Stage
     {
         Normal,
@@ -60,6 +62,7 @@ public class SliderController : MonoBehaviour
     void Start()
     {
         SEse = true;
+        _addScore = false;
         startX = cam.position.x;
         goalX = goal.position.x;
         slider.maxValue = goalX - startX;
@@ -159,17 +162,22 @@ public class SliderController : MonoBehaviour
             fade = true;
             if(slider.value < 100)
             {
-                SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4,RandomState.GameOver,RandomSEType.GameOver);
+                SceneFader.Instance.FadeToScene("Lose1",BGMType.BGM4,RandomState.GameOver,RandomSEType.GameOver, SEType.Null);
             }
             else
             {
-                SceneFader.Instance.FadeToScene("Lose2",BGMType.BGM4,RandomState.GameOver, RandomSEType.GameOver);
+                SceneFader.Instance.FadeToScene("Lose2",BGMType.BGM4,RandomState.GameOver, RandomSEType.GameOver, SEType.Null);
             }
         }
         if(_boss._hp <= 0)
         {
             fade = true;
-            SceneFader.Instance.FadeToScene("Result",BGMType.BGM3,RandomState.Claer,RandomSEType.Claer);
+            if (!_addScore)
+            {
+                _addScore = true;
+                ScoreManager.Instance.AddScore("Boss", "null");
+            }
+            SceneFader.Instance.FadeToScene("Result",BGMType.BGM3,RandomState.Claer,RandomSEType.Claer, SEType.Null);
         }
     }
 

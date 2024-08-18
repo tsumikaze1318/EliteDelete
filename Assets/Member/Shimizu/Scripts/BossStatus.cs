@@ -88,6 +88,7 @@ public class BossStatus : MonoBehaviour
 
     private void Update()
     {
+        if (SceneFader.Instance.IsFade) return;
         if (aoki.SEse) return;
         if (healthSlider != null)
         {
@@ -184,6 +185,7 @@ public class BossStatus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (SceneFader.Instance.IsFade) return;
         if (aoki.SEse) return;
         if (other.gameObject.CompareTag("Bullet"))
         {

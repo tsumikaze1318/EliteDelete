@@ -10,7 +10,8 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private Canvas fadeCanvas; // フェード用Canvas
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
-    public bool _isFade = false;
+    private bool _isFade = false;
+    public bool IsFade => _isFade;
 
     private void Awake()
     {
@@ -40,13 +41,14 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    public void FadeToScene(string GameScene, BGMType type, RandomState State,RandomSEType TypeSE)
+    public void FadeToScene(string GameScene, BGMType type, RandomState State,RandomSEType RandomTypeSE,SEType TypeSe)
     {
         if (_isFade) return;
         _isFade = true;
         StartCoroutine(FadeOut(GameScene));
         SE.Instance.PlayBgm(type);
-        SE.Instance.RandomPlaySe(State, TypeSE);
+        SE.Instance.RandomPlaySe(State, RandomTypeSE);
+        SE.Instance.PlaySe(TypeSe);
     }
 
     private IEnumerator FadeIn()

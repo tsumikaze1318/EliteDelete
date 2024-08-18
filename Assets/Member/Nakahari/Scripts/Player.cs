@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
     
     void PauseScreen()
     {
-        if (SceneFader.Instance._isFade) return;
+        if (SceneFader.Instance.IsFade) return;
         if (!_isPause)
         {
             if (_pauseAction)

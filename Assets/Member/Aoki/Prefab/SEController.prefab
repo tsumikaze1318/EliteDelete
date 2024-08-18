@@ -70,11 +70,11 @@ MonoBehaviour:
   seDataList:
   - Type: 0
     Clip: {fileID: 8300000, guid: 6b95b32bf43f22248bf21cf8d3e2aa63, type: 3}
-    Volume: 0.8
+    Volume: 1
     Loop: 0
   - Type: 1
     Clip: {fileID: 8300000, guid: 95671fbf0ba9b014eae17f5e52f848a6, type: 3}
-    Volume: 0.8
+    Volume: 1
     Loop: 0
   - Type: 2
     Clip: {fileID: 8300000, guid: 6d952141ce19e5e4ba11d91f48a0046d, type: 3}
@@ -82,7 +82,7 @@ MonoBehaviour:
     Loop: 0
   - Type: 3
     Clip: {fileID: 8300000, guid: f3582621600b5c848be366037c61e0c4, type: 3}
-    Volume: 1
+    Volume: 0.55
     Loop: 0
   - Type: 4
     Clip: {fileID: 8300000, guid: e26684be9f111834983dd9ad4405bfac, type: 3}
@@ -112,7 +112,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9993eec81f6a36e498f0a4329e101fc0, type: 3}
   - {fileID: 8300000, guid: 22834d9f1dbee734b95af8893180c989, type: 3}
   - {fileID: 8300000, guid: 7892448cee3642d48b1003dc99535754, type: 3}
-  - {fileID: 8300000, guid: 75c5455af2a05a343b9da18d063a3548, type: 3}
   - {fileID: 8300000, guid: c8bba4b0d00343c4bba61dce17863e8d, type: 3}
   - {fileID: 8300000, guid: 549d0d4db6dd79744aa70bb20a810b86, type: 3}
   - {fileID: 8300000, guid: a3b338181ebd3274da4d31670a292a4d, type: 3}
@@ -133,43 +132,43 @@ MonoBehaviour:
   _randomData:
   - Type: 0
     Clip: {fileID: 0}
-    Volume: 0.8
+    Volume: 1
     Loop: 0
   - Type: 1
     Clip: {fileID: 0}
-    Volume: 0.9
+    Volume: 1
     Loop: 0
   - Type: 2
     Clip: {fileID: 0}
-    Volume: 0.8
+    Volume: 1
     Loop: 0
   - Type: 3
     Clip: {fileID: 0}
-    Volume: 0.8
+    Volume: 1
     Loop: 0
   - Type: 4
     Clip: {fileID: 0}
-    Volume: 0.7
+    Volume: 1
     Loop: 0
   - Type: 5
     Clip: {fileID: 0}
-    Volume: 0.4
+    Volume: 1
     Loop: 0
   - Type: 6
     Clip: {fileID: 0}
-    Volume: 0.7
+    Volume: 1
     Loop: 0
   - Type: 7
     Clip: {fileID: 0}
-    Volume: 0.6
+    Volume: 1
     Loop: 0
   - Type: 9
     Clip: {fileID: 0}
-    Volume: 0.7
+    Volume: 1
     Loop: 0
   - Type: 9
     Clip: {fileID: 0}
-    Volume: 0.7
+    Volume: 1
     Loop: 0
   seSource: {fileID: 2042374321310109577}
 --- !u!1 &4549221371350740578
