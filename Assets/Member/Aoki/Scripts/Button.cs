@@ -13,7 +13,7 @@ public class Button : MonoBehaviour
 
     public void OnTitleBackClicled()
     {
-        SE.Instance.PlaySe(SEType.SE2);
+        SE.Instance.PlaySe(SEType.SE6);
         SceneFader.Instance.FadeToScene("Title",BGMType.BGM1,RandomState.Null,RandomSEType.Null);
     }
 }
