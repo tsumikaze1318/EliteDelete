@@ -238,21 +238,13 @@ public class SE : MonoBehaviour
                 seSource.volume = se7.Volume;
                 seSource.PlayOneShot(clip7);
                 break;
-            case RandomState.Sui:
-                var random8 = Random.Range(21, 23);
+            case RandomState.SuiHP:
+                var random8 = Random.Range(21, 28);
                 var clip8 = _randomClip[random8];
                 var se8 = _randomData[(int)type];
                 seSource.clip = clip8;
                 seSource.volume = se8.Volume;
                 seSource.PlayOneShot(clip8);
-                break;
-            case RandomState.SuiHP:
-                var random9 = Random.Range(23, 29);
-                var clip9 = _randomClip[random9];
-                var se9 = _randomData[(int)type];
-                seSource.clip = clip9;
-                seSource.volume = se9.Volume;
-                seSource.PlayOneShot(clip9);
                 break;
         }
     }

@@ -122,13 +122,34 @@ public class SliderController : MonoBehaviour
 
     IEnumerator SuiSE()
     {
-        SE.Instance.RandomPlaySe(RandomState.Sui, RandomSEType.Sui);
+        SE.Instance.PlaySe(SEType.SE3);
         yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
+        SE.Instance.PlaySe(SEType.SE4);
+        float t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            float alpha = t / 1;
+            SetAlpha(alpha);
+            yield return null;
+        }
+        yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
+        SetAlpha(1f);
         SEse = false;
         SE.Instance.RandomPlaySe(RandomState.Boss, RandomSEType.Boss);
     }
 
-    
+    private void SetAlpha(float alpha)
+    {
+        foreach(SpriteRenderer sr in _boss._sprite)
+        {
+            Color color = sr.color;
+            color.a = alpha;
+            sr.color = color;
+        }
+    }
+
+
     // ’†’£’Ç‹L ğŒ‚ÅƒŠƒUƒ‹ƒg•ªŠò
 
     private void result()

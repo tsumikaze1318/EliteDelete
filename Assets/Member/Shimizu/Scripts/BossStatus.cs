@@ -49,6 +49,8 @@ public class BossStatus : MonoBehaviour
     private float _currentHp;
     private float _ratioHp;
 
+    public SpriteRenderer[] _sprite;
+
     private void Start()
     {
         _damageFlag = false;
@@ -65,6 +67,20 @@ public class BossStatus : MonoBehaviour
         {
             healthSlider.maxValue = _hp;
             healthSlider.value = _hp;
+        }
+
+        _sprite = GetComponentsInChildren<SpriteRenderer>();
+
+        SetAlpha(0f);
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        foreach (SpriteRenderer sr in _sprite)
+        {
+            Color color = sr.color;
+            color.a = alpha;
+            sr.color = color;
         }
     }
 
