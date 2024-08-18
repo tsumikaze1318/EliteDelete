@@ -922,16 +922,28 @@ PrefabInstance:
       value: SEController
       objectReference: {fileID: 0}
     - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: _randomClip.Array.data[23]
+      value: 
+      objectReference: {fileID: 8300000, guid: 75c586889e9f7f14697d0b73e130c52f, type: 3}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
       propertyPath: seDataList.Array.data[2].Clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6556d6d5cdf12b7409efd8e40a424fcb, type: 3}
+      objectReference: {fileID: 8300000, guid: 6d952141ce19e5e4ba11d91f48a0046d, type: 3}
     - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
       propertyPath: seDataList.Array.data[3].Clip
       value: 
-      objectReference: {fileID: 8300000, guid: 0bba64fb3fccbad4a95f5cf5cfbfb1ff, type: 3}
+      objectReference: {fileID: 8300000, guid: f3582621600b5c848be366037c61e0c4, type: 3}
     - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
       propertyPath: seDataList.Array.data[3].Volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: _randomData.Array.data[3].Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733715356403450926, guid: f507c95104bf4e34f944c54638d41e65, type: 3}
+      propertyPath: _randomData.Array.data[5].Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
