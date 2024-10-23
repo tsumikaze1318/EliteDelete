@@ -100,6 +100,7 @@ public class EnemyStatus : MonoBehaviour
             _hp -= 10;
             _damageFlag = true;
             StartCoroutine(DamageCoolTime());
+            SE.Instance.PlaySe(SEType.SE9);
             Destroy(other.gameObject);
         }
     }

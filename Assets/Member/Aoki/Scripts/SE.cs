@@ -31,6 +31,7 @@ public enum SEType
     SE6,
     SE7,
     SE8,
+    SE9,
     Null
 }
 
@@ -104,7 +105,7 @@ public class SE : MonoBehaviour
     [SerializeField]
     private List<RandomSEData> _randomData = new List<RandomSEData>();
     [SerializeField]
-    private AudioSource seSource = null;
+    public AudioSource seSource = null;
     
 
 
@@ -150,6 +151,7 @@ public class SE : MonoBehaviour
         seSource.clip = se.Clip;
         seSource.volume = se.Volume;
         seSource.PlayOneShot(se.Clip);
+
     }
     //サウンドループ再生
     public void PlayLoopSe(SEType type)

@@ -59,9 +59,11 @@ public class Player : MonoBehaviour
     private Canvas _pauseCanvas;
     public bool _isPause;
 
-    // Start is called before the first frame update
+    public bool _bossMovie = false;
+
     void Start()
     {
+        // ‚»‚ê‚¼‚ê‚Ì‰Šú‰»&Invoke‚ÌŒÄ‚Ño‚µ
         _launchPoint.Add(_launchLocation[0]);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -89,6 +91,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Item‚ªG‚ê‚½Û‚Ìˆ—
         if (other.gameObject.CompareTag("Item"))
         {
             if(_maxBulletCount < 2)
@@ -101,7 +104,7 @@ public class Player : MonoBehaviour
             if (_hp >= 5) return;
             _hp++;
         }
-
+        // ”í’e‚µ‚½Û‚Ìˆ—
         if (other.gameObject.CompareTag("Bullet2"))
         {
             if (_damage) return;
@@ -153,7 +156,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    // ’e‚Ìˆ—
     private void BulletShot(GameObject bulletObj)
     {
         Rigidbody2D bulletRb = bulletObj.GetComponent<Rigidbody2D>();
@@ -162,6 +165,7 @@ public class Player : MonoBehaviour
 
     private void BulletInstantiate()
     {
+        if (_bossMovie) return;
         foreach(GameObject bullet in _launchPoint)
         {
             var instantiateObj = Instantiate(_bulletPrefab, bullet.transform.position, Quaternion.identity);
@@ -182,6 +186,7 @@ public class Player : MonoBehaviour
         }
     }
     
+    // ƒ|[ƒY‰æ–Ê‚Ìˆ—
     void PauseScreen()
     {
         if (SceneFader.Instance.IsFade) return;
@@ -203,11 +208,6 @@ public class Player : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-    }
-
-    void OnMove(InputValue value)
-    {
-        _move = value.Get<Vector2>();
     }
 
     void OnPause(InputValue value)
@@ -233,5 +233,10 @@ public class Player : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+    }
+
+    void OnMove(InputValue value)
+    {
+        _move = value.Get<Vector2>();
     }
 }

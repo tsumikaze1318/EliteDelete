@@ -57,7 +57,8 @@ public class SliderController : MonoBehaviour
     public enum Stage
     {
         Normal,
-        Boss
+        Boss,
+        BossNow
     }
     void Start()
     {
@@ -125,6 +126,7 @@ public class SliderController : MonoBehaviour
 
     IEnumerator SuiSE()
     {
+        _pl._bossMovie = true;
         SE.Instance.PlaySe(SEType.SE3);
         yield return new WaitWhile(() => SE.Instance.PassAudioSource().isPlaying);
         SE.Instance.PlaySe(SEType.SE4);
@@ -140,6 +142,7 @@ public class SliderController : MonoBehaviour
         SetAlpha(1f);
         SEse = false;
         SE.Instance.PlaySe(SEType.SE8);
+        _pl._bossMovie = false;
     }
 
     private void SetAlpha(float alpha)

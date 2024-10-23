@@ -67,6 +67,7 @@ public class KinnawaEnemy : MonoBehaviour
             _damageFlag = true;
             StartCoroutine(DamageCoolTime());
             Destroy(other.gameObject);
+            SE.Instance.PlaySe(SEType.SE9);
         }
     }
     private void TakeDamage()

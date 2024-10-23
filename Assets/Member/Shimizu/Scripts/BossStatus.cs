@@ -107,16 +107,12 @@ public class BossStatus : MonoBehaviour
         moveTime -= Time.deltaTime;
         if (moveTime <= 0.0f && attack2 == false)
         {
-            vecX = Random.Range(rangeA.transform.position.x, rangeB.transform.position.x);
-            vecY = Random.Range(rangeA.transform.position.y, rangeB.transform.position.y);
-            var lastBossPos = bossPos;
-            vec2 = new Vector2(vecX, vecY);
-            gameObject.GetComponent<Rigidbody2D>().velocity = (vec2 - lastBossPos).normalized * _moveSpeed;
-            moveTime = 2.0f;
+            BossMove();
         }
-        if(Mathf.Approximately(vec2.x,bossPos.x) && Mathf.Approximately(vec2.y, bossPos.y))
+        if(bossPos.x <= rangeA.transform.position.x || bossPos.y >= rangeA.transform.position.y
+            || bossPos.x >= rangeB.transform.position.x || bossPos.y <= rangeB.transform.position.y)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            BossMove();
         }
         if (_attackFlag == false)
         {
@@ -145,6 +141,16 @@ public class BossStatus : MonoBehaviour
         //{
         //    Attack2();
         //}
+    }
+
+    private void BossMove()
+    {
+        vecX = Random.Range(rangeA.transform.position.x, rangeB.transform.position.x);
+        vecY = Random.Range(rangeA.transform.position.y, rangeB.transform.position.y);
+        var lastBossPos = bossPos;
+        vec2 = new Vector2(vecX, vecY);
+        gameObject.GetComponent<Rigidbody2D>().velocity = (vec2 - lastBossPos).normalized * _moveSpeed;
+        moveTime = 2.0f;
     }
 
     private void BulletMove(GameObject bullet)
