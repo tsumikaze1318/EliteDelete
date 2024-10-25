@@ -67,7 +67,6 @@ public class SliderController : MonoBehaviour
         goalX = goal.position.x;
         slider.maxValue = goalX - startX;
         SetNormalBackgroundAlpha(1.0f);
-        //SetBossBackgroundAlpha(0);
         if(stage == Stage.Normal)
         {
             SE.Instance.RandomPlaySe(RandomState.InGame, RandomSEType.InGame);
@@ -98,8 +97,6 @@ public class SliderController : MonoBehaviour
             SuiHP.gameObject.SetActive(false);
             SuichanName.gameObject.SetActive(false);
             SetNormalBackgroundAlpha(1.0f);
-            //SetBossBackgroundAlpha(0);
-            //SE.Instance.RandomPlaySe(RandomState.InGame,RandomSEType.InGame);
         }
         else if (stage == Stage.Boss)
         {
@@ -111,7 +108,6 @@ public class SliderController : MonoBehaviour
             SuiHP.gameObject.SetActive(true);
             SuichanName.gameObject.SetActive(true);
             FadeOutNormalBack();
-            //SetBossBackgroundAlpha(1.0f);
             if (!BossSE)
             {
                 BossSE = true;

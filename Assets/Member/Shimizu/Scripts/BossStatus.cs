@@ -137,7 +137,6 @@ public class BossStatus : MonoBehaviour
                 attack2 = true;
                 playerPos = _player.transform.localPosition;
                 originalPos = transform.position;
-                Debug.Log("ê¬ñÿ");
                 StartCoroutine(Test());
             }
         }
